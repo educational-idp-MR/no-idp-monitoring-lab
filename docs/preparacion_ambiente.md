@@ -10,15 +10,15 @@
 
 2. Asegurese que la región de la cuenta sea us-east-1 - Estados Unidos (Norte de Virginia) 
 
-![Seleccion region](./resources/region.png)
+![Seleccion region](./resources/provisioning/region.png)
 
 3. Utilizando la barra de búsqueda de la parte superior central, diríjase al servicio de EC2
 
-![alt text](./resources/gotoec2.png)
+![alt text](./resources/provisioning/gotoec2.png)
 
 4. Dé click en lanzar instancia.
 
-![alt text](./resources/instance.png)
+![alt text](./resources/provisioning/instance.png)
 
 5. Diligencie los siguientes elementos:
 
@@ -41,15 +41,15 @@
 7. Espere hasta que el estado de la instancia sea `En ejecución`
 
 
-![alt text](./resources/instance_ready.png)
+![alt text](./resources/provisioning/instance_ready.png)
 
 8. Seleccione la instancia y de click en  `Conectar`
 
-![alt text](./resources/connect.png)
+![alt text](./resources/provisioning/connect.png)
 
 9. Seleccione la pestaña `Administrador de sesiones` y dé click en conectar
 
-![alt text](./resources/connect2.png)
+![alt text](./resources/provisioning/connect2.png)
 
 
 10. Una vez dentro de la instancia ejecute los siguientes comandosl. El propósito de estos comandos es 1. instalar Docker 2. hacer que el usuario que estamos usando lo pueda usar sin requerir `sudo` 3. instalar docker compose
@@ -72,18 +72,18 @@ Al finalizar el proceso debería obtener un mensaje similar al siguiente `Docker
 ## Despliegue inicial del proyecto
 
 1. Diríjase a la consola principal de aws o a la barra de busqueda y buscar por el servicio S3.
-![alt text](./resources/s3console.png)
+![alt text](./resources/provisioning/s3console.png)
 2. Seleccionar el bucket de nombre: eci-source-code-bucket-mr
-![alt text](./resources/selected_bucket.png)
+![alt text](./resources/provisioning/selected_bucket.png)
 3. Crear un nuevo folder con el siguiente formato: [USUARIO-ENLACE]-code. Ej: andres.marcelo-code
 
-![alt text](./resources/folder.png)
-![alt text](./resources/folder2.png)
+![alt text](./resources/provisioning/folder.png)
+![alt text](./resources/provisioning/folder2.png)
 
 4. Comprimir la carpeta `telemetry-lab` del codigo fuente con sus cambios comprimidos en formato .zip con el nombre `telemetry-lab.zip` y subala a s3 arrastrando el archivo sobre la interfaz
 5. obtenga la dirección del archivo al hacer click sobre `Copy S3 URI`
 
-![alt text](./resources/s3uri.png)
+![alt text](./resources/provisioning/s3uri.png)
 
 6. En la instancia ejecute el siguiente comando :
 

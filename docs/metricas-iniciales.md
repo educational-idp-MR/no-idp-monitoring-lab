@@ -1,0 +1,43 @@
+# Etapa 3 – Configuración y Exploración de Métricas
+
+## Objetivo
+Analizar las métricas expuestas por la aplicación Java y verificar su recolección en Prometheus.
+
+## Instrucciones
+
+## 1. Generar actividad en la aplicación
+Antes de observar las métricas, debes provocar tráfico hacia la aplicación para generar datos y logs iniciales.
+
+1. Abre tu navegador y accede al endpoint principal de la aplicación: `http://<app-url>/`
+
+2. Realiza varias solicitudes a diferentes rutas de la API.  Los endpoints disponibles son :
+
+
+3. Espera unos segundos para que las métricas se actualicen en el endpoint de Prometheus
+
+## 2. Explorar las métricas expuestas por la aplicación
+
+El microservicio Java expone sus métricas en formato Prometheus a través del endpoint `/actuator/prometheus`. Estas métricas reflejan distintos aspectos del comportamiento de la aplicación, tales como rendimiento, latencia y errores.
+
+1. Abre el endpoint de métricas en tu navegador `http://<app-url>/actuator/prometheus`. Deberías encontrar algo como lo que se muestra en la siguiente imagen :
+![alt text](./resources/metricas-iniciales/metricpath.png)
+
+
+2. Examina el contenido del endpoint y busca métricas relacionadas con:
+- Número de solicitudes HTTP 
+- Latencia o duración de las solicitudes 
+- Códigos de estado HTTP 
+- Uso de memoria o CPU
+
+3.  En tu bitácora de laboratorio:
+
+    - Selecciona tres métricas relevantes y describe qué información aportan sobre el sistema.
+        -  Menciona que tipo de métrica son (gauge, counter, histograma)
+        - Con que otras métricas podría estar relacionada? Por ejemplo, un aumento en peticiones podría influir en el uso de CPU
+        - Cómo nos ayuda esta métrica a identificar problemas de rendimiento o disponibilidad?
+
+    - ¿Qué unidades o etiquetas se utilizan para agrupar los datos?
+
+    - ¿Cuáles métricas crees que serían más útiles para diagnosticar el rendimiento del sistema?
+
+
