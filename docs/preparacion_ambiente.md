@@ -1,4 +1,4 @@
-# Preparación del ambiente de laboratorio
+# Etapa 1: Preparación del ambiente de laboratorio
 
 ## Obtención de código fuente
 1. Crear un fork del siguiente repositorio : https://github.com/AndresMarcelo7/telemetry_lab

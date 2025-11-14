@@ -1,4 +1,4 @@
-# Etapa 3 – Configuración y Exploración de Métricas
+# Etapa 2 – Configuración y Exploración de Métricas
 
 ## Objetivo
 Analizar las métricas expuestas por la aplicación Java y verificar su recolección en Prometheus.
@@ -12,6 +12,44 @@ Antes de observar las métricas, debes provocar tráfico hacia la aplicación pa
 
 2. Realiza varias solicitudes a diferentes rutas de la API.  Los endpoints disponibles son :
 
+    1. **`GET /api/`**  
+    - **Descripción:** Devuelve el estado general del servicio.  
+    - **Ejemplo:**  
+        ```
+        curl http://localhost:8080/api/
+        ```
+
+    2. **`POST /api/shorten`**  
+    - **Descripción:** Crea una URL acortada a partir de un JSON con la URL original.  
+    - **Entrada esperada:**
+        ```json
+        {
+        "url": "https://example.com",
+        "customCode": "opcional"
+        }
+        ```
+    - **Ejemplo:**  
+        ```
+        curl -X POST http://localhost:8080/api/shorten \
+        -H "Content-Type: application/json" \
+        -d '{"url": "https://google.com"}'
+        ```
+
+    3. **`GET /api/{shortCode}`**  
+    - **Descripción:** Redirige a la URL original asociada a un código corto.   
+    - **Ejemplo:**  
+        ```
+        curl -I http://localhost:8080/api/abc123
+        ```
+
+    4. **`GET /api/urls`**  
+   - **Descripción:** Retorna todas las URLs almacenadas en memoria.  
+   - **Ejemplo:**  
+     ```
+     curl http://localhost:8080/api/urls
+     ```
+
+---
 
 3. Espera unos segundos para que las métricas se actualicen en el endpoint de Prometheus
 

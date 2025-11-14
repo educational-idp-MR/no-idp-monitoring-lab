@@ -1,4 +1,4 @@
-# Etapa 4 – Creación del Dashboard Base en Grafana
+# Etapa 2.1 – Creación del Dashboard Base en Grafana
 
 ## Objetivo
 Construir un dashboard en Grafana que permita visualizar y analizar las métricas recolectadas por Prometheus y los logs procesados por Loki, comprendiendo cómo reflejan el comportamiento del sistema en términos de rendimiento, latencia y errores.
@@ -205,8 +205,7 @@ Observar los **logs generados por la aplicación Java** en tiempo real, filtrarl
 
 Esta variable permitirá filtrar dinámicamente el nivel de logs visualizado desde un menú desplegable en la parte superior del dashboard.
 
-> IMAGEN AQUI (Vista de configuración de la variable LogLevel)
-
+![alt text](./resources/grafana-inicial/loglevelvar.png)
 ---
 
 ### Paso 2: Crear el panel de logs
@@ -218,3 +217,74 @@ Esta variable permitirá filtrar dinámicamente el nivel de logs visualizado des
 {container_name="java-application"} 
 | regexp `(?P<timestamp>\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}) - (?P<logger>[\w.$]+) - (?P<level>[A-Z]+) - (?P<msg>.*)` 
 | level =~ `$LogLevel`
+```
+
+**Interpretación de la consulta:**
+
+Muestra todos los logs generados por el contenedor java-application,
+extrayendo la fecha, el logger, el nivel de severidad y el mensaje de cada línea,
+y filtrando dinámicamente según el nivel seleccionado en $LogLevel.
+
+
+
+### Paso 3: Configuración de visualización
+
+**Tipo**: Logs panel
+
+**Opciones recomendadas:**
+
+* Activar “Show context” (para ver líneas antes y después del evento).
+
+* Activar “Wrap lines” (para leer mensajes largos).
+
+* Ordenar por timestamp descendente.
+
+
+![alt text](./resources/grafana-inicial/log-panel-config.png)
+
+
+
+# Extensión del laboratorio – Creación de visualizaciones adicionales
+
+Ahora que ya configuraste tu dashboard base y los paneles principales (solicitudes, latencia, errores y logs), es momento de **explorar por tu cuenta las métricas y datos disponibles** para crear tus propias visualizaciones.
+
+El objetivo es que practiques la interpretación de métricas y aprendas a elegir representaciones adecuadas para comunicar el estado y comportamiento del sistema.
+
+---
+
+
+## 5. Extensión del dashboard – Creación de visualizaciones adicionales
+
+Hasta este punto has construido el **dashboard base**, con paneles que muestran las solicitudes, la latencia, los errores y los logs de la aplicación.  
+Ahora usarás las métricas restantes disponibles en Prometheus y los datos de Loki para **ampliar tu dashboard** con tus propias visualizaciones.
+
+---
+
+### 5.1 Instrucciones
+
+Diseña **al menos tres nuevas visualizaciones** que complementen las ya existentes.  
+Para cada una, define:
+
+- **Propósito:** qué quieres analizar o mostrar.  
+- **Título del panel:** un nombre claro y descriptivo.  
+- **Query:** la expresión PromQL o LogQL que usarás.  
+- **Tipo de visualización:** *Time series*, *Gauge*, *Bar chart*, *Stat*, *Logs*, entre otros.  
+- **Ajustes opcionales:** colores, unidades, leyenda, rango de tiempo o frecuencia de actualización.  
+- En tu bitácora del laboratorio, agrega un breve comentario por cada panel adicional (2–3 frases) donde expliques:
+    - Qué información aporta.  
+    - Qué conclusiones o patrones observas.
+
+### 5.2 Recomendaciones
+
+- Explora las métricas disponibles en `actuator/prometheus`, adicionalmente puedes proponer nuevas visualizaciones de las métricas que ya se han utilizado si las consideras relevantes para monitorear la aplicación. 
+- Si usas **Loki**, puedes aplicar expresiones regulares y filtros para contar, agrupar o visualizar logs específicos (por ejemplo, errores, advertencias o mensajes informativos).  
+- Usa el **modo Builder** si prefieres construir consultas desde menús, o el **modo Code** para escribir las expresiones directamente.  Si deseas, apoyate de modelos LLM para generar las consultas a partir del propósito previamente definido.
+- Ajusta los **colores y unidades** para que los datos sean fáciles de leer (por ejemplo, convertir bytes a MB o segundos a milisegundos).  
+- Prueba diferentes **tipos de panel** hasta encontrar la visualización que mejor comunique el comportamiento observado.  
+
+### 5.3 Análisis final
+
+- ¿Qué comportamiento del sistema pudiste observar que no era evidente en el dashboard inicial?  
+- ¿Qué métricas se relacionan entre sí? (por ejemplo, CPU con latencia, memoria con errores, etc.)  
+- ¿Qué indicadores te parecerían útiles para detectar fallos antes de que afecten a los usuarios?  
+- ¿Qué otros datos te gustaría visualizar si tuvieras más información disponible?
