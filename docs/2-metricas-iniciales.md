@@ -6,9 +6,9 @@ Analizar las métricas expuestas por la aplicación Java y verificar su recolecc
 ## Instrucciones
 
 ## 1. Generar actividad en la aplicación
-Antes de observar las métricas, debes provocar tráfico hacia la aplicación para generar datos y logs iniciales.
+Antes de observar las métricas, debes generar tráfico hacia la aplicación para producir datos y logs iniciales.
 
-1. Abre tu navegador y accede al endpoint principal de la aplicación: `http://<app-url>/`
+1. Abre tu navegador y accede al endpoint principal de la aplicación: `http://{Public-DNS}/`
 
 2. Realiza varias solicitudes a diferentes rutas de la API.  Los endpoints disponibles son :
 
@@ -16,7 +16,7 @@ Antes de observar las métricas, debes provocar tráfico hacia la aplicación pa
     - **Descripción:** Devuelve el estado general del servicio.  
     - **Ejemplo:**  
         ```
-        curl http://localhost:8080/api/
+        curl http://{Public-DNS}/api/
         ```
 
     2. **`POST /api/shorten`**  
@@ -30,7 +30,7 @@ Antes de observar las métricas, debes provocar tráfico hacia la aplicación pa
         ```
     - **Ejemplo:**  
         ```
-        curl -X POST http://localhost:8080/api/shorten \
+        curl -X POST http://{Public-DNS}/api/shorten \
         -H "Content-Type: application/json" \
         -d '{"url": "https://google.com"}'
         ```
@@ -39,14 +39,14 @@ Antes de observar las métricas, debes provocar tráfico hacia la aplicación pa
     - **Descripción:** Redirige a la URL original asociada a un código corto.   
     - **Ejemplo:**  
         ```
-        curl -I http://localhost:8080/api/abc123
+        curl -I http://{Public-DNS}/api/abc123
         ```
 
     4. **`GET /api/urls`**  
    - **Descripción:** Retorna todas las URLs almacenadas en memoria.  
    - **Ejemplo:**  
      ```
-     curl http://localhost:8080/api/urls
+     curl http://{Public-DNS}/api/urls
      ```
 
 ---
@@ -57,7 +57,7 @@ Antes de observar las métricas, debes provocar tráfico hacia la aplicación pa
 
 El microservicio Java expone sus métricas en formato Prometheus a través del endpoint `/actuator/prometheus`. Estas métricas reflejan distintos aspectos del comportamiento de la aplicación, tales como rendimiento, latencia y errores.
 
-1. Abre el endpoint de métricas en tu navegador `http://<app-url>/actuator/prometheus`. Deberías encontrar algo como lo que se muestra en la siguiente imagen :
+1. Abre el endpoint de métricas en tu navegador `http://{Public-DNS}/actuator/prometheus`. Deberías encontrar algo como lo que se muestra en la siguiente imagen :
 ![alt text](./resources/metricas-iniciales/metricpath.png)
 
 

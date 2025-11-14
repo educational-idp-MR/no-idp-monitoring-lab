@@ -7,7 +7,7 @@ Construir un dashboard en Grafana que permita visualizar y analizar las métrica
 
 ## 1. Acceso a Grafana
 
-1. Ingresa a la interfaz web de Grafana `http://<grafana-url>/`
+1. Ingresa a la interfaz web de Grafana `http://{Public-DNS}:3000`
 2. En el menú lateral, selecciona **“Dashboard”** y luego haz clic en **“new”**. Finalmente, haz clic en **"Add Visualization"**
 
 ![alt text](./resources/grafana-inicial/grafana1.png)
@@ -16,7 +16,7 @@ Construir un dashboard en Grafana que permita visualizar y analizar las métrica
 
 
 
-## 2. Panel 1 – Solicitudes procesadas por endpoint
+## 2. Panel 1 – Solicitudes procesadas por endpoint (por segundo)
 
 ### Propósito
 Crear la **primera visualización** en Grafana a partir de una métrica de Prometheus.  
@@ -56,7 +56,12 @@ Ambos modos producen el mismo resultado. Puedes cambiar entre ellos usando el bo
 
 ---
 
-### Paso 3: Escribir la consulta
+### Paso 3: Configuración de la consulta
+
+Este panel mostrará cuántas solicitudes procesa la aplicación por segundo, agrupadas por endpoint (`uri`).  
+Con esta visualización podrás identificar qué rutas se usan más, cómo varía la carga en el tiempo y si existen picos de tráfico que coincidan con aumentos en la latencia o errores.
+
+La métrica utilizada cuenta cuántas solicitudes han sido procesadas y PromQL convierte esos conteos acumulados en una tasa  (requests per second – RPS), usando la función `rate`. Para definir la consulta sigue los siguientes pasos:
 
 En **Code Mode**, escribe la siguiente consulta PromQL:
 
@@ -76,31 +81,32 @@ Aggregate: Aggregate functions -> sum + `By label` uri
 ### Paso 4: Configurar la visualización
 
 En el panel derecho de Grafana encontrarás varias secciones con opciones que te permiten personalizar la visualización.
-Estas son las principales:
+Por ejemplo:
 
-Visualization: el tipo de gráfico (líneas, barras, gauge, tabla, etc.).
+* Visualization: el tipo de gráfico (líneas, barras, gauge, tabla, etc.).
 
-Panel options: título, descripción y unidades de medida.
+![alt text](./resources/grafana-inicial/visualization-menu.png)
 
-Field options: formato de valores, colores, y límites de ejes.
+* Panel options: título, descripción
 
-Legend: cómo se muestran los nombres de las series (por ejemplo, mostrar el uri).
+* Field options: formato de valores, colores, y límites de ejes.
 
-Recomendaciones
+* Legend: cómo se muestran los nombres de las series (por ejemplo, mostrar el uri).
 
-Elige `Time series` como tipo de visualización.
+**Recomendaciones**
+* Elige `Time series` como tipo de visualización.
 
-Cambia el título del panel a: `Tasa de solicitudes por segundo por endpoint`
+* Cambia el título del panel a: `Tasa de solicitudes por segundo por endpoint`
 
-Activa la leyenda y selecciona  _Mode_ `Table` y _Placement_ `Right` para mostrar los endpoints a la derecha.
+* Activa la leyenda y selecciona  _Mode_ `Table` y _Placement_ `Right` para mostrar los endpoints a la derecha.
 
-En la opción _Unit_ utiliza el valor _Throughput_ -> Requests/sec (rps)
+* En la opción _Unit_ utiliza el valor _Throughput_ -> Requests/sec (rps)
 
-Explora libremente las demás opciones del panel: Grafana te permite ajustar escalas, colores y estilos.
+* Explora libremente las demás opciones del panel: Grafana te permite ajustar escalas, colores y estilos.
 
-No tengas miedo de experimentar: la mejor forma de aprender es modificar y observar cómo cambia el gráfico.
+* No tengas miedo de experimentar: la mejor forma de aprender es modificar y observar cómo cambia el gráfico.
 
-Al final deberías ver algo como esto 
+**Al final deberías ver algo como esto**
 
 ![alt text](./resources/grafana-inicial/panel1.png)
 
@@ -219,7 +225,7 @@ Esta variable permitirá filtrar dinámicamente el nivel de logs visualizado des
 | level =~ `$LogLevel`
 ```
 
-**Interpretación de la consulta:**
+#### Interpretación de la consulta:**
 
 Muestra todos los logs generados por el contenedor java-application,
 extrayendo la fecha, el logger, el nivel de severidad y el mensaje de cada línea,
@@ -262,7 +268,7 @@ Ahora usarás las métricas restantes disponibles en Prometheus y los datos de L
 
 ### 5.1 Instrucciones
 
-Diseña **al menos tres nuevas visualizaciones** que complementen las ya existentes.  
+Diseña **al menos dos nuevas visualizaciones** que complementen las ya existentes.  
 Para cada una, define:
 
 - **Propósito:** qué quieres analizar o mostrar.  
