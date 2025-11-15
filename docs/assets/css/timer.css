@@ -143,6 +143,49 @@
   border-top: 2px solid #667eea;
 }
 
+/* Finish Stage Button */
+.finish-stage-container {
+  text-align: center;
+  margin: 40px 0;
+  padding: 30px;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+.finish-stage-btn {
+  background: white;
+  color: #059669;
+  border: none;
+  padding: 18px 40px;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.finish-stage-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+  background: #f0fdf4;
+}
+
+.finish-stage-btn:active {
+  transform: translateY(-1px);
+}
+
+.finish-stage-info {
+  color: white;
+  font-size: 0.95rem;
+  margin-top: 15px;
+  opacity: 0.95;
+}
+
 /* Responsive design */
 @media (max-width: 600px) {
   .timer-display {
@@ -155,5 +198,11 @@
   
   .timer-btn {
     width: 100%;
+  }
+  
+  .finish-stage-btn {
+    width: 100%;
+    font-size: 1.1rem;
+    padding: 16px 30px;
   }
 }

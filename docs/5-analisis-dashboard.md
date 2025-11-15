@@ -187,6 +187,17 @@ Has completado exitosamente el laboratorio de Observabilidad y Telemetría. Ahor
 
 [⬅️ Anterior: Etapa 2.2](./4-propuesta-metrica.md) | [🏠 Volver al Inicio](./main.md)
 
+---
+
+<div class="finish-stage-container">
+  <button id="finish-stage-btn" class="finish-stage-btn" data-next-url="">
+    🏆 Finalizar Laboratorio ✅
+  </button>
+  <p class="finish-stage-info">
+    💾 Al hacer clic, tu tiempo será guardado y verás el resumen completo abajo
+  </p>
+</div>
+
 **¡Gracias por completar este laboratorio! 🚀**
 
 ---

@@ -206,7 +206,7 @@ Todos los cambios mantienen el **contenido original intacto** y solo mejoran la 
 - ✅ **Auto-reanudación**: Continúa desde donde lo dejaste
 - ✅ **Resumen global**: Tabla con todos los tiempos en Etapa 3
 - ✅ **Compatible GitHub Pages**: Usando archivos JS/CSS externos
-- ✅ **🆕 Modal automático**: Pregunta si guardar al hacer clic en "Siguiente"
+- ✅ **🆕 Botón de Finalizar**: Botón grande al final de cada etapa
 
 #### Archivos Creados:
 ```
@@ -230,34 +230,38 @@ docs/
 - Responsive design
 - Gestión de estados (running/paused/completed)
 - Cálculo automático de tiempo total
-- **Interceptación de navegación**: Detecta clicks en links "Siguiente"
-- **Modal dinámico**: Pregunta al usuario si guardar antes de continuar
+- **Botón de finalización**: En cada etapa para guardar y navegar
 
-#### 🆕 Modal Automático de Guardado:
+#### 🆕 Botón de "Finalizar Etapa y Continuar":
 
-Cuando el usuario hace clic en **"➡️ Siguiente"** para pasar a la siguiente etapa:
+Al final de cada etapa hay un **botón grande y visible** que:
 
-1. **Detección automática**: El sistema verifica si:
-   - ✅ El timer tiene tiempo registrado (> 0s)
-   - ✅ La etapa NO ha sido marcada como completada
-   - ✅ El usuario está navegando hacia adelante
+1. **Ubicación**: Se encuentra antes de los links de navegación
+   - Imposible de perder
+   - Diseño destacado con gradiente verde
+   - Mensaje claro: "✅ Finalizar Etapa y Continuar ➡️"
 
-2. **Modal de confirmación**: Se muestra un modal elegante preguntando:
-   - **"¿Guardar tiempo de esta etapa?"**
-   - Muestra el tiempo transcurrido actual
-   - Ofrece dos opciones:
-     - ✅ **Sí, Guardar Tiempo**: Guarda y continúa
-     - ⏭️ **Continuar sin Guardar**: Solo continúa
+2. **Funcionalidad**:
+   - **Si hay tiempo registrado (> 0s)**:
+     - Guarda el tiempo automáticamente
+     - Marca la etapa como completada
+     - Muestra mensaje de confirmación (🎉)
+     - Navega a la siguiente etapa después de 1.5s
+   - **Si NO hay tiempo**:
+     - Alerta al usuario que debe iniciar el timer
+     - No navega hasta que haya tiempo
 
-3. **Prevención de pérdida de datos**: 
-   - Protege contra olvidos accidentales
-   - Mejora la precisión del registro
-   - Experiencia de usuario fluida
+3. **Última etapa** (Etapa 3):
+   - Botón dice: "🏆 Finalizar Laboratorio ✅"
+   - Guarda el tiempo
+   - Hace scroll al resumen de tiempos
+   - Recarga para mostrar tabla actualizada
 
-4. **Inteligencia contextual**:
-   - NO aparece si ya completaste la etapa
-   - NO aparece si el timer está en 00:00:00
-   - Solo intercepta links de "Siguiente", no de "Anterior" o "Inicio"
+4. **Ventajas**:
+   - ✅ Soluciones simple y directa
+   - ✅ Sin complejidad de interceptación
+   - ✅ Acción explícita del usuario
+   - ✅ Funciona perfectamente en GitHub Pages
 
 ---
 

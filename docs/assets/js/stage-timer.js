@@ -238,97 +238,56 @@ document.addEventListener('DOMContentLoaded', function() {
     
     const timer = new StageTimer(stageId, stageName);
     
-    // Intercept navigation to next stage
-    console.log('🔗 Setting up navigation interception...');
-    interceptNextStageNavigation(stageId, stageName, timer);
+    // Setup finish button if exists
+    setupFinishButton(stageId, stageName, timer);
   } else {
     console.warn('⚠️ No timer container found on this page');
   }
 });
 
-// Intercept clicks on "Next Stage" links
-function interceptNextStageNavigation(currentStageId, currentStageName, timerInstance) {
-  // Find ALL links on the page
-  const allLinks = document.querySelectorAll('a');
-  console.log('🔍 Found', allLinks.length, 'links on page');
+// Setup finish button
+function setupFinishButton(stageId, stageName, timerInstance) {
+  const finishBtn = document.getElementById('finish-stage-btn');
   
-  let nextLinksFound = 0;
+  if (!finishBtn) {
+    console.warn('⚠️ No finish button found on this page');
+    return;
+  }
   
-  allLinks.forEach(link => {
-    const linkText = link.textContent.trim();
-    const linkHref = link.getAttribute('href') || '';
+  const nextUrl = finishBtn.getAttribute('data-next-url');
+  console.log('✅ Finish button found, next URL:', nextUrl);
+  
+  finishBtn.addEventListener('click', function() {
+    console.log('👆 Finish button clicked');
     
-    // Check if it's a "Next" or "Siguiente" link
-    // Must contain the right arrow emoji OR the word "Siguiente" AND point to another stage
-    const isNextLink = (
-      (linkText.includes('➡️') || linkText.includes('Siguiente') || linkText.toLowerCase().includes('next')) &&
-      !linkText.includes('⬅️') && // Not a back link
-      !linkText.includes('Anterior') && // Not a previous link
-      !linkText.includes('🏠') && // Not a home link
-      linkHref && // Has a href
-      linkHref !== '#' && // Not just an anchor
-      !linkHref.startsWith('http') // Not an external link
-    );
-    
-    if (isNextLink) {
-      nextLinksFound++;
-      console.log('➡️ Next link found:', linkText, '-> href:', linkHref);
+    // Save the time
+    if (timerInstance.elapsedTime > 0) {
+      timerInstance.finish();
       
-      link.addEventListener('click', function(e) {
-        console.log('👆 Click detected on:', linkText);
-        
-        // Check if stage is not completed yet
-        const completionKey = `stage_${currentStageId}_completed`;
-        const isCompleted = localStorage.getItem(completionKey);
-        const currentTime = timerInstance.elapsedTime;
-        
-        console.log('📊 Status Check:');
-        console.log('  - Stage ID:', currentStageId);
-        console.log('  - Is Completed:', !!isCompleted);
-        console.log('  - Timer Time:', currentTime, 'ms');
-        console.log('  - Should show modal:', !isCompleted && currentTime > 0);
-        
-        // Only prompt if stage is not completed and timer has some time
-        if (!isCompleted && currentTime > 0) {
-          e.preventDefault(); // Stop navigation temporarily
-          console.log('✅ Showing modal...');
-          
-          const hours = Math.floor(timerInstance.elapsedTime / 3600000);
-          const minutes = Math.floor((timerInstance.elapsedTime % 3600000) / 60000);
-          const seconds = Math.floor((timerInstance.elapsedTime % 60000) / 1000);
-          
-          let timeText = '';
-          if (hours > 0) timeText += `${hours}h `;
-          if (minutes > 0) timeText += `${minutes}m `;
-          timeText += `${seconds}s`;
-          
-          // Show custom confirmation dialog
-          showSaveTimeDialog(
-            currentStageName,
-            timeText,
-            () => {
-              // User chose to save
-              timerInstance.finish();
-              setTimeout(() => {
-                window.location.href = link.href;
-              }, 1000); // Small delay to show completion message
-            },
-            () => {
-              // User chose not to save
-              window.location.href = link.href;
-            }
-          );
+      // Wait a moment to show completion message
+      setTimeout(() => {
+        if (nextUrl && nextUrl.trim() !== '') {
+          // Navigate to next stage
+          window.location.href = nextUrl;
+        } else {
+          // Last stage: scroll to summary
+          const summary = document.getElementById('time-summary-container');
+          if (summary) {
+            summary.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            // Reload the summary to show updated times
+            window.location.reload();
+          }
         }
-        // If already completed or no time, allow normal navigation
-      });
+      }, 1500);
+    } else {
+      // No time registered
+      if (nextUrl && nextUrl.trim() !== '') {
+        window.location.href = nextUrl;
+      } else {
+        alert('⚠️ Inicia el timer primero para registrar tu tiempo.');
+      }
     }
   });
-  
-  console.log(`✅ Navigation setup complete: ${nextLinksFound} "next" links intercepted`);
-  
-  if (nextLinksFound === 0) {
-    console.warn('⚠️ No "next" links found! The modal won\'t work.');
-  }
 }
 
 // Show custom dialog for saving time
