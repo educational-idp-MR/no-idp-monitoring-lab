@@ -20,8 +20,8 @@
 
 **¿La aplicación se desplegó correctamente?** 
 
-[ ] Sí
-[ ] No
+- [ ] Sí
+- [ ] No
 
 **Captura de pantalla de la aplicación funcionando:**
 
@@ -59,10 +59,10 @@
 ```
 
 **Tipo de métrica:** 
-[ ] Counter
-[ ] Gauge 
-[ ] Histogram 
-[ ] Summary
+- [ ] Counter
+- [ ] Gauge 
+- [ ] Histogram 
+- [ ] Summary
 
 **Descripción de qué información aporta:**
 ```
@@ -103,10 +103,10 @@ Ejemplo: uri, method, status, instance, job, etc.
 ```
 
 **Tipo de métrica:** 
-[ ] Counter
-[ ] Gauge 
-[ ] Histogram 
-[ ] Summary
+- [ ] Counter
+- [ ] Gauge 
+- [ ] Histogram 
+- [ ] Summary
 
 **Descripción de qué información aporta:**
 ```
@@ -171,12 +171,12 @@ Consejo: Si usaste la interfaz de Grafana para crear el panel, puedes copiar la 
 ```
 
 **Tipo de visualización:** 
-[ ] Time series
-[ ] Gauge
-[ ] Bar chart
-[ ] Stat
-[ ] Logs
-[ ] Otro: _____
+- [ ] Time series
+- [ ] Gauge
+- [ ] Bar chart
+- [ ] Stat
+- [ ] Logs
+- [ ] Otro: _____
 
 **Ajustes aplicados (colores, unidades, etc.):**
 ```
@@ -219,12 +219,12 @@ Consejo: Si usaste la interfaz de Grafana para crear el panel, puedes copiar la 
 ```
 
 **Tipo de visualización:** 
-[ ] Time series
-[ ] Gauge
-[ ] Bar chart
-[ ] Stat
-[ ] Logs
-[ ] Otro: _____
+- [ ] Time series
+- [ ] Gauge
+- [ ] Bar chart
+- [ ] Stat
+- [ ] Logs
+- [ ] Otro: _____
 
 **Ajustes aplicados (colores, unidades, etc.):**
 ```
@@ -277,8 +277,8 @@ Ejemplo: url_shortener_urls_created_total
 ```
 
 **2. Tipo de métrica:**
-[ ] Counter
-[ ] Gauge
+- [ ] Counter
+- [ ] Gauge
 
 **3. ¿Qué comportamiento mide?**
 ```
@@ -316,11 +316,11 @@ Ejemplo: Durante la creación de URLs, durante los accesos, etc.
 
 **1. ¿Qué tipo de panel usaste en Grafana?**
 
-[ ] Time series  
-[ ] Gauge  
-[ ] Stat  
-[ ] Bar chart  
-[ ] Otro: _____
+- [ ] Time series  
+- [ ] Gauge  
+- [ ] Stat  
+- [ ] Bar chart  
+- [ ] Otro: _____
 
 **2. ¿Qué consulta PromQL vas a utilizar?**
 ```promql
@@ -349,39 +349,25 @@ Provee una interpretación en palabras con el propósito de la visualización. Q
 
 ## Etapa 3: Experimentación y Análisis del Sistema
 
-### 5.4. Detección de anomalías y puntos de interés
+### 3.1. Detección de anomalías y puntos de interés
 
-**Anomalías detectadas:**
+**1. Como describirias la anomalía?**
 
-#### Anomalía 1
-
-**Tipo de anomalía:**
-☐ Pico de latencia  
-☐ Tiempos de respuesta inconsistentes  
-☐ Errores HTTP  
-☐ Caídas/aumentos de tráfico  
-☐ Logs atípicos  
-☐ Otro: _____
-
-**Descripción:**
 ```
-
 
 
 ```
 
-**¿Cuándo ocurrió?**
-```
-Fecha/hora:
-```
+**2. Que paneles te ayudaron a identificarlo?**
 
-**¿Qué panel te alertó primero?**
-```
+``` 
+
 
 ```
 
-**¿Cómo lo confirmaste?**
-```
+**3. Cual podria ser la causa de la anomalía?**
+
+``` 
 
 
 ```
@@ -392,62 +378,10 @@ Fecha/hora:
 
 ---
 
-#### Anomalía 2 (opcional)
-
-**Tipo de anomalía:**
-☐ Pico de latencia  
-☐ Tiempos de respuesta inconsistentes  
-☐ Errores HTTP  
-☐ Caídas/aumentos de tráfico  
-☐ Logs atípicos  
-☐ Otro: _____
-
-**Descripción:**
-```
+### 3.2. Intento de corrección de anomalías
 
 
-
-```
-
-**¿Cuándo ocurrió?**
-```
-Fecha/hora:
-```
-
-**¿Qué panel te alertó primero?**
-```
-
-```
-
-**¿Cómo lo confirmaste?**
-```
-
-
-```
-
-**Captura de pantalla del dashboard mostrando la anomalía:**
-
-> _[Inserta aquí la imagen]_
-
----
-
-### 5.5. Tarea adicional: Intento de corrección de anomalías
-
-**¿Se detectaron anomalías persistentes?** ☐ Sí ☐ No
-
-#### 5.5.1. Propuesta de causa
-
-**Hipótesis sobre la causa de la anomalía:**
-```
-Basándote en las métricas y en los logs, escribe una hipótesis.
-Ejemplo: "Este endpoint parece más lento que los demás porque..."
-
-
-
-
-```
-
-#### 5.5.2. Modificación del código
+#### 3.2.1. Modificación del código
 
 **Endpoint o funcionalidad afectada:**
 ```
@@ -463,36 +397,13 @@ Ejemplo: Mejorar validaciones, ajustar lógica interna, refactorizar, etc.
 
 ```
 
-**Código modificado (antes y después):**
+#### 3.2.2. Resultados después del despliegue
 
-**Antes:**
-```java
+**¿El ajuste surtió efecto?**
+- [ ] Sí 
+- [ ] No 
+- [ ] Parcialmente
 
-
-
-
-```
-
-**Después:**
-```java
-
-
-
-
-```
-
-#### 5.5.3. Resultados después del despliegue
-
-**¿El ajuste surtió efecto?** ☐ Sí ☐ No ☐ Parcialmente
-
-**Cambios observados:**
-
-| Métrica | Antes | Después | Observación |
-|---------|-------|---------|-------------|
-| Latencia | | | |
-| Errores | | | |
-| Tráfico | | | |
-| Logs | | | |
 
 **Captura de pantalla del dashboard después del ajuste:**
 
@@ -502,47 +413,6 @@ Ejemplo: Mejorar validaciones, ajustar lógica interna, refactorizar, etc.
 ```
 ¿La latencia cambió? ¿Los errores disminuyeron? ¿Los logs muestran un comportamiento más estable?
 
-
-
-
-```
-
----
-
-### 5.6. Registro final de observaciones
-
-#### Valores observados durante la experimentación
-
-**Tiempos de respuesta promedio:**
-```
-
-```
-
-**Tasa de solicitudes (RPS):**
-```
-
-```
-
-**Errores detectados:**
-```
-
-```
-
-**Captura de pantalla general del dashboard:**
-
-> _[Inserta aquí una imagen completa del dashboard]_
-
-#### Correlaciones identificadas
-
-**¿Qué paneles se relacionan entre sí?**
-```
-
-
-
-```
-
-**¿Qué métricas cambiaron al mismo tiempo?**
-```
 
 
 
@@ -573,35 +443,5 @@ Ejemplo: Mejorar validaciones, ajustar lógica interna, refactorizar, etc.
 
 
 ```
-
-**Conclusiones generales del laboratorio:**
-```
-
-
-
-
-
-
-```
-
----
-
-## Recursos Adicionales
-
-### Enlaces útiles
-- Repositorio del proyecto: _____________________
-- Dashboard en Grafana: _____________________
-- Documentación consultada: _____________________
-
-### Notas adicionales
-```
-
-
-
-
-
-```
-
----
 
 **Fin de la bitácora**
