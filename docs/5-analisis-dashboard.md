@@ -12,6 +12,13 @@
 
 ---
 
+<!-- Timer Component -->
+<link rel="stylesheet" href="./assets/css/timer.css">
+<div id="stage-timer" data-stage-id="etapa3" data-stage-name="Etapa 3: Experimentación y Análisis"></div>
+<script src="./assets/js/stage-timer.js"></script>
+
+---
+
 ## 🎯 Objetivo
 
 Analizar el comportamiento real de la aplicación usando el dashboard construido en Grafana, identificar patrones, anomalías o comportamientos inesperados, y reflexionar sobre posibles causas basadas únicamente en las métricas y logs observados.
@@ -181,5 +188,85 @@ Has completado exitosamente el laboratorio de Observabilidad y Telemetría. Ahor
 [⬅️ Anterior: Etapa 2.2](./4-propuesta-metrica.md) | [🏠 Volver al Inicio](./main.md)
 
 **¡Gracias por completar este laboratorio! 🚀**
+
+---
+
+## 📊 Resumen de Tiempos del Laboratorio
+
+<div id="time-summary-container"></div>
+
+<script>
+// Display time summary for all stages
+document.addEventListener('DOMContentLoaded', function() {
+  const container = document.getElementById('time-summary-container');
+  if (!container) return;
+  
+  const stages = [
+    { id: 'etapa1', name: 'Etapa 1: Preparación del Ambiente', estimated: '20-30 min' },
+    { id: 'etapa2', name: 'Etapa 2: Métricas Iniciales', estimated: '15-20 min' },
+    { id: 'etapa2-1', name: 'Etapa 2.1: Dashboard Base en Grafana', estimated: '30-40 min' },
+    { id: 'etapa2-2', name: 'Etapa 2.2: Propuesta de Métrica Personalizada', estimated: '25-35 min' },
+    { id: 'etapa3', name: 'Etapa 3: Experimentación y Análisis', estimated: '30-40 min' }
+  ];
+  
+  let html = '<table class="time-summary-table"><thead><tr><th>Etapa</th><th>Tiempo Estimado</th><th>Tu Tiempo</th><th>Estado</th></tr></thead><tbody>';
+  
+  let totalTime = 0;
+  let completedCount = 0;
+  
+  stages.forEach(stage => {
+    const completionKey = `stage_${stage.id}_completed`;
+    const data = localStorage.getItem(completionKey);
+    
+    let actualTime = '-';
+    let status = '❌ No completada';
+    
+    if (data) {
+      const completion = JSON.parse(data);
+      actualTime = completion.timeText;
+      status = '✅ Completada';
+      totalTime += completion.timeSpent;
+      completedCount++;
+    }
+    
+    html += `<tr><td><strong>${stage.name}</strong></td><td>${stage.estimated}</td><td><strong>${actualTime}</strong></td><td>${status}</td></tr>`;
+  });
+  
+  // Total row
+  if (totalTime > 0) {
+    const hours = Math.floor(totalTime / 3600000);
+    const minutes = Math.floor((totalTime % 3600000) / 60000);
+    const seconds = Math.floor((totalTime % 60000) / 1000);
+    
+    let totalText = '';
+    if (hours > 0) totalText += `${hours}h `;
+    if (minutes > 0) totalText += `${minutes}m `;
+    totalText += `${seconds}s`;
+    
+    html += `<tr class="total-time-row"><td colspan="2"><strong>🏆 Tiempo Total</strong></td><td colspan="2"><strong>${totalText}</strong> (${completedCount}/5 etapas)</td></tr>`;
+  } else {
+    html += `<tr class="total-time-row"><td colspan="4" style="text-align:center;"><em>Aún no has completado ninguna etapa. Los tiempos se registrarán cuando hagas clic en "Finalizar Etapa" en cada sección.</em></td></tr>`;
+  }
+  
+  html += '</tbody></table>';
+  
+  // Add clear data button
+  html += '<div style="text-align: center; margin-top: 20px;"><button onclick="clearAllTimes()" style="background: #ef4444; color: white; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; font-weight: 600;">🗑️ Limpiar Todos los Tiempos</button></div>';
+  
+  container.innerHTML = html;
+});
+
+function clearAllTimes() {
+  if (confirm('¿Estás seguro de eliminar todos los tiempos registrados? Esta acción no se puede deshacer.')) {
+    const stages = ['etapa1', 'etapa2', 'etapa2-1', 'etapa2-2', 'etapa3'];
+    stages.forEach(stageId => {
+      localStorage.removeItem(`stage_${stageId}`);
+      localStorage.removeItem(`stage_${stageId}_completed`);
+    });
+    localStorage.removeItem('lab_total_time');
+    location.reload();
+  }
+}
+</script>
 
 </div>

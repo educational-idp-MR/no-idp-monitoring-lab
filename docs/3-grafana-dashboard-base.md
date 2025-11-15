@@ -12,6 +12,13 @@
 
 ---
 
+<!-- Timer Component -->
+<link rel="stylesheet" href="./assets/css/timer.css">
+<div id="stage-timer" data-stage-id="etapa2-1" data-stage-name="Etapa 2.1: Dashboard Base en Grafana"></div>
+<script src="./assets/js/stage-timer.js"></script>
+
+---
+
 ## 🎯 Objetivo
 
 Construir un dashboard en Grafana que permita visualizar y analizar las métricas recolectadas por Prometheus y los logs procesados por Loki, comprendiendo cómo reflejan el comportamiento del sistema en términos de rendimiento, latencia y errores.

@@ -191,6 +191,48 @@ Bitacora.md                # ✅ Sin cambios (como solicitado)
 
 Todos los cambios mantienen el **contenido original intacto** y solo mejoran la **presentación visual** y la **experiencia de usuario**. La documentación es completamente funcional tanto en GitHub Pages como en Backstage.
 
+---
+
+## 🎉 Versión 2.1 - Sistema de Timer por Etapa (2025-11-15)
+
+### ⏱️ Nueva Funcionalidad: Timer Interactivo
+
+**¡IMPLEMENTADO EXITOSAMENTE!** Cada etapa ahora incluye un timer funcional que:
+
+#### Características:
+- ✅ **Inicio/Pausa/Reinicio**: Control total del cronómetro
+- ✅ **Finalización con resumen**: Muestra tiempo total al completar
+- ✅ **Persistencia**: Se guarda automáticamente en localStorage
+- ✅ **Auto-reanudación**: Continúa desde donde lo dejaste
+- ✅ **Resumen global**: Tabla con todos los tiempos en Etapa 3
+- ✅ **Compatible GitHub Pages**: Usando archivos JS/CSS externos
+
+#### Archivos Creados:
+```
+docs/
+├── assets/
+│   ├── js/
+│   │   └── stage-timer.js       # Lógica del timer
+│   └── css/
+│       └── timer.css            # Estilos del timer
+└── TIMER-GUIDE.md               # Documentación completa
+```
+
+#### Integración:
+- Timer agregado al inicio de cada etapa (1, 2, 2.1, 2.2, 3)
+- Resumen de tiempos al final de la Etapa 3
+- Diseño cohesivo con el resto de la documentación
+
+#### Funcionalidades Técnicas:
+- localStorage para persistencia
+- JavaScript vanilla (sin dependencias)
+- Responsive design
+- Gestión de estados (running/paused/completed)
+- Cálculo automático de tiempo total
+
+---
+
 **Autor de las mejoras:** Sistema de IA Cascade  
-**Fecha:** 2025-11-15  
-**Versión:** 2.0
+**Fecha Inicial:** 2025-11-15  
+**Última Actualización:** 2025-11-15  
+**Versión Actual:** 2.1

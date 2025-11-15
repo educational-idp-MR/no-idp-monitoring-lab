@@ -12,6 +12,13 @@
 
 ---
 
+<!-- Timer Component -->
+<link rel="stylesheet" href="./assets/css/timer.css">
+<div id="stage-timer" data-stage-id="etapa2" data-stage-name="Etapa 2: Métricas Iniciales"></div>
+<script src="./assets/js/stage-timer.js"></script>
+
+---
+
 ## 🎯 Objetivo
 
 Analizar las métricas expuestas por la aplicación Java y verificar su recolección en Prometheus.

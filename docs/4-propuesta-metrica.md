@@ -12,6 +12,13 @@
 
 ---
 
+<!-- Timer Component -->
+<link rel="stylesheet" href="./assets/css/timer.css">
+<div id="stage-timer" data-stage-id="etapa2-2" data-stage-name="Etapa 2.2: Propuesta de Métrica Personalizada"></div>
+<script src="./assets/js/stage-timer.js"></script>
+
+---
+
 ## 🎯 Objetivo
 
 En esta etapa analizarás el comportamiento interno del servicio de acortamiento de URLs y propondrás una **métrica personalizada** que complemente las métricas ya expuestas en el endpoint `/actuator/prometheus`.

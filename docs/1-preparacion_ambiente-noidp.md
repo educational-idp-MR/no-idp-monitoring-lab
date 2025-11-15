@@ -12,6 +12,13 @@
 
 ---
 
+<!-- Timer Component -->
+<link rel="stylesheet" href="./assets/css/timer.css">
+<div id="stage-timer" data-stage-id="etapa1" data-stage-name="Etapa 1: Preparación del Ambiente"></div>
+<script src="./assets/js/stage-timer.js"></script>
+
+---
+
 ## 📦 Obtención de Código Fuente
 
 > **Paso 1:** Preparación del repositorio
