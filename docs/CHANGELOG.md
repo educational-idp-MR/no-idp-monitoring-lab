@@ -206,6 +206,7 @@ Todos los cambios mantienen el **contenido original intacto** y solo mejoran la 
 - ✅ **Auto-reanudación**: Continúa desde donde lo dejaste
 - ✅ **Resumen global**: Tabla con todos los tiempos en Etapa 3
 - ✅ **Compatible GitHub Pages**: Usando archivos JS/CSS externos
+- ✅ **🆕 Modal automático**: Pregunta si guardar al hacer clic en "Siguiente"
 
 #### Archivos Creados:
 ```
@@ -229,6 +230,34 @@ docs/
 - Responsive design
 - Gestión de estados (running/paused/completed)
 - Cálculo automático de tiempo total
+- **Interceptación de navegación**: Detecta clicks en links "Siguiente"
+- **Modal dinámico**: Pregunta al usuario si guardar antes de continuar
+
+#### 🆕 Modal Automático de Guardado:
+
+Cuando el usuario hace clic en **"➡️ Siguiente"** para pasar a la siguiente etapa:
+
+1. **Detección automática**: El sistema verifica si:
+   - ✅ El timer tiene tiempo registrado (> 0s)
+   - ✅ La etapa NO ha sido marcada como completada
+   - ✅ El usuario está navegando hacia adelante
+
+2. **Modal de confirmación**: Se muestra un modal elegante preguntando:
+   - **"¿Guardar tiempo de esta etapa?"**
+   - Muestra el tiempo transcurrido actual
+   - Ofrece dos opciones:
+     - ✅ **Sí, Guardar Tiempo**: Guarda y continúa
+     - ⏭️ **Continuar sin Guardar**: Solo continúa
+
+3. **Prevención de pérdida de datos**: 
+   - Protege contra olvidos accidentales
+   - Mejora la precisión del registro
+   - Experiencia de usuario fluida
+
+4. **Inteligencia contextual**:
+   - NO aparece si ya completaste la etapa
+   - NO aparece si el timer está en 00:00:00
+   - Solo intercepta links de "Siguiente", no de "Anterior" o "Inicio"
 
 ---
 

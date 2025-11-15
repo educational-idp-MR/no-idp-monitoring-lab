@@ -232,6 +232,179 @@ document.addEventListener('DOMContentLoaded', function() {
   if (timerContainer) {
     const stageId = timerContainer.getAttribute('data-stage-id');
     const stageName = timerContainer.getAttribute('data-stage-name');
-    new StageTimer(stageId, stageName);
+    const timer = new StageTimer(stageId, stageName);
+    
+    // Intercept navigation to next stage
+    interceptNextStageNavigation(stageId, stageName, timer);
   }
 });
+
+// Intercept clicks on "Next Stage" links
+function interceptNextStageNavigation(currentStageId, currentStageName, timerInstance) {
+  // Find all navigation links that point to next stages
+  const navLinks = document.querySelectorAll('a[href*=".md"]');
+  
+  navLinks.forEach(link => {
+    const linkText = link.textContent.trim();
+    
+    // Check if it's a "Next" or "Siguiente" link
+    if (linkText.includes('➡️') || linkText.includes('Siguiente') || linkText.includes('Next')) {
+      link.addEventListener('click', function(e) {
+        // Check if stage is not completed yet
+        const completionKey = `stage_${currentStageId}_completed`;
+        const isCompleted = localStorage.getItem(completionKey);
+        
+        // Only prompt if stage is not completed and timer has some time
+        if (!isCompleted && timerInstance.elapsedTime > 0) {
+          e.preventDefault(); // Stop navigation temporarily
+          
+          const hours = Math.floor(timerInstance.elapsedTime / 3600000);
+          const minutes = Math.floor((timerInstance.elapsedTime % 3600000) / 60000);
+          const seconds = Math.floor((timerInstance.elapsedTime % 60000) / 1000);
+          
+          let timeText = '';
+          if (hours > 0) timeText += `${hours}h `;
+          if (minutes > 0) timeText += `${minutes}m `;
+          timeText += `${seconds}s`;
+          
+          // Show custom confirmation dialog
+          showSaveTimeDialog(
+            currentStageName,
+            timeText,
+            () => {
+              // User chose to save
+              timerInstance.finish();
+              setTimeout(() => {
+                window.location.href = link.href;
+              }, 1000); // Small delay to show completion message
+            },
+            () => {
+              // User chose not to save
+              window.location.href = link.href;
+            }
+          );
+        }
+        // If already completed or no time, allow normal navigation
+      });
+    }
+  });
+}
+
+// Show custom dialog for saving time
+function showSaveTimeDialog(stageName, timeText, onSave, onSkip) {
+  // Create modal overlay
+  const overlay = document.createElement('div');
+  overlay.style.cssText = `
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    animation: fadeIn 0.3s;
+  `;
+  
+  // Create modal content
+  const modal = document.createElement('div');
+  modal.style.cssText = `
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    max-width: 500px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    animation: slideIn 0.3s;
+  `;
+  
+  modal.innerHTML = `
+    <div style="text-align: center;">
+      <div style="font-size: 3rem; margin-bottom: 15px;">⏱️</div>
+      <h2 style="margin: 0 0 15px 0; color: #333;">¿Guardar tiempo de esta etapa?</h2>
+      <p style="color: #666; margin: 10px 0; line-height: 1.6;">
+        Estás a punto de pasar a la siguiente etapa.<br>
+        <strong style="color: #667eea;">${stageName}</strong>
+      </p>
+      <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <div style="font-size: 0.9rem; opacity: 0.9; margin-bottom: 5px;">Tiempo transcurrido:</div>
+        <div style="font-size: 2rem; font-weight: bold; font-family: 'Courier New', monospace;">${timeText}</div>
+      </div>
+      <p style="color: #666; font-size: 0.9rem; margin-bottom: 25px;">
+        ¿Quieres registrar este tiempo como completado?<br>
+        <small style="opacity: 0.8;">Podrás ver un resumen al final del laboratorio</small>
+      </p>
+      <div style="display: flex; gap: 10px; justify-content: center;">
+        <button id="save-time-btn" style="
+          background: #10b981;
+          color: white;
+          border: none;
+          padding: 12px 24px;
+          border-radius: 6px;
+          cursor: pointer;
+          font-size: 1rem;
+          font-weight: 600;
+          transition: all 0.3s;
+        ">✅ Sí, Guardar Tiempo</button>
+        <button id="skip-time-btn" style="
+          background: #6b7280;
+          color: white;
+          border: none;
+          padding: 12px 24px;
+          border-radius: 6px;
+          cursor: pointer;
+          font-size: 1rem;
+          font-weight: 600;
+          transition: all 0.3s;
+        ">⏭️ Continuar sin Guardar</button>
+      </div>
+    </div>
+  `;
+  
+  // Add CSS animation
+  const style = document.createElement('style');
+  style.textContent = `
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes slideIn {
+      from { transform: translateY(-50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    #save-time-btn:hover {
+      background: #059669;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+    }
+    #skip-time-btn:hover {
+      background: #4b5563;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(107, 114, 128, 0.4);
+    }
+  `;
+  document.head.appendChild(style);
+  
+  overlay.appendChild(modal);
+  document.body.appendChild(overlay);
+  
+  // Add event listeners
+  document.getElementById('save-time-btn').addEventListener('click', () => {
+    document.body.removeChild(overlay);
+    onSave();
+  });
+  
+  document.getElementById('skip-time-btn').addEventListener('click', () => {
+    document.body.removeChild(overlay);
+    onSkip();
+  });
+  
+  // Close on overlay click
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) {
+      document.body.removeChild(overlay);
+      onSkip();
+    }
+  });
+}

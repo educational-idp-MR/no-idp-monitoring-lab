@@ -47,6 +47,68 @@ El sistema de timer te permite medir **exactamente cuánto tiempo pasas en cada 
 
 ---
 
+## 🚨 Guardado Automático al Cambiar de Etapa
+
+### ¿Qué Sucede Cuando Haces Clic en "Siguiente"?
+
+Cuando hagas clic en el botón **"➡️ Siguiente"** para pasar a la siguiente etapa, el sistema **detectará automáticamente** que aún no has guardado tu tiempo y te mostrará un **modal de confirmación**:
+
+```
+┌────────────────────────────────────┐
+│         ⏱️                              │
+│  ¿Guardar tiempo de esta etapa?      │
+│                                      │
+│  Estás a punto de pasar a la          │
+│  siguiente etapa.                     │
+│  Etapa 1: Preparación del Ambiente   │
+│                                      │
+│  Tiempo transcurrido:                 │
+│       25m 15s                         │
+│                                      │
+│  ¿Quieres registrar este tiempo       │
+│  como completado?                     │
+│                                      │
+│  [✅ Sí, Guardar]  [⏭️ Sin Guardar]  │
+└────────────────────────────────────┘
+```
+
+### Opciones del Modal:
+
+#### ✅ **Sí, Guardar Tiempo**
+- Guarda automáticamente tu tiempo como completado
+- Registra la etapa en tu historial
+- Te lleva a la siguiente etapa después de 1 segundo
+- **Recomendado**: Para llevar un registro completo
+
+#### ⏭️ **Continuar sin Guardar**
+- No guarda el tiempo de la etapa actual
+- Te lleva inmediatamente a la siguiente etapa
+- Puedes volver después y guardar manualmente
+
+### ¿Cuándo Aparece el Modal?
+
+El modal **solo aparece** cuando:
+- ✅ El timer tiene tiempo registrado (> 0 segundos)
+- ✅ La etapa aún NO ha sido marcada como completada
+- ✅ Haces clic en un link de "Siguiente" o "➡️"
+
+### ¿Cuándo NO Aparece?
+
+El modal **NO aparece** si:
+- ❌ Ya completaste la etapa (hiciste clic en "✅ Finalizar Etapa")
+- ❌ El timer está en 00:00:00 (no has iniciado)
+- ❌ Navegas hacia atrás ("⬅️ Anterior")
+- ❌ Vas al inicio ("🏠 Inicio")
+
+### Ventajas de Esta Funcionalidad:
+
+1. **🛡️ Protección contra olvidos**: No perderás tu tiempo accidentalmente
+2. **📊 Mejora la precisión**: Captura el tiempo exacto al terminar
+3. **✨ Experiencia fluida**: No necesitas recordar hacer clic en "Finalizar"
+4. **🎯 Flexibilidad**: Puedes elegir guardar o no en cada momento
+
+---
+
 ## 💾 Persistencia de Datos
 
 ### ¿Dónde se Guarda?
@@ -106,14 +168,16 @@ El timer funciona completamente offline. No requiere conexión a internet.
 
 1. **Inicia el timer al comenzar** cada etapa
 2. **Pausa si te distraes** o tomas un descanso largo
-3. **Finaliza solo cuando completes** todos los pasos
-4. **No reinicies** a menos que realmente quieras empezar de cero
+3. **Usa el modal automático** cuando pases a la siguiente etapa (aparecerá solo)
+4. **Guarda tu tiempo** cuando el modal te lo pregunte si completaste la etapa
+5. **No reinicies** a menos que realmente quieras empezar de cero
 
 ### ❌ Evita:
 
-1. No finalices hasta completar toda la etapa
+1. No ignores el modal de guardado si completaste la etapa
 2. No uses múltiples navegadores (los tiempos no se sincronizan)
 3. No limpies el localStorage del navegador si quieres mantener tus tiempos
+4. No hagas clic en "Continuar sin Guardar" si ya terminaste la etapa
 
 ---
 
