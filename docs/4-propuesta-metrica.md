@@ -1,4 +1,18 @@
-# Etapa 2.2 – Propuesta de una métrica personalizada basada en el comportamiento del acortador de URLs
+# 🔧 Etapa 2.2: Propuesta de Métrica Personalizada
+
+<div align="center">
+
+[![Etapa](https://img.shields.io/badge/etapa-2.2-blue.svg)]()
+[![Duración](https://img.shields.io/badge/duraci%C3%B3n-25--35%20min-orange.svg)]()
+[![Dificultad](https://img.shields.io/badge/dificultad-intermedia-yellow.svg)]()
+
+[⬅️ Anterior: Etapa 2.1](./3-grafana-dashboard-base.md) | [🏠 Inicio](./main.md) | [➡️ Siguiente: Etapa 3](./5-analisis-dashboard.md)
+
+</div>
+
+---
+
+## 🎯 Objetivo
 
 En esta etapa analizarás el comportamiento interno del servicio de acortamiento de URLs y propondrás una **métrica personalizada** que complemente las métricas ya expuestas en el endpoint `/actuator/prometheus`.
 
@@ -6,7 +20,9 @@ Esta métrica no debe ser una copia de las existentes, sino una métrica que **t
 
 ---
 
-## 1. Revisa la funcionalidad de la aplicación
+## 📋 Construcción de tu Métrica Personalizada
+
+### 1️⃣ Revisa la Funcionalidad de la Aplicación
 
 Dentro del proyecto, encontrarás la clase: `UrlShortenerService (paquete com.telemetry.urlshortener.service)`
 
@@ -22,7 +38,7 @@ Tu tarea será analizar esta clase para identificar un comportamiento que no est
 
 ---
 
-## 2. Identifica un comportamiento relevante para medir
+### 2️⃣ Identifica un Comportamiento Relevante para Medir
 
 Observa cómo funciona el servicio y piensa:
 
@@ -43,7 +59,7 @@ Una vez hayas elegido un comportamiento interesante, documenta:
 
 ---
 
-## 3. Implementa la métrica en el código
+### 3️⃣ Implementa la Métrica en el Código
 
 > Debes instrumentar tu métrica dentro de `UrlShortenerService`, siguiendo el patrón del `dummyCounter` ya existente.
 
@@ -58,7 +74,9 @@ Cuando termines, reinicia la aplicación   y verifica que tu métrica aparece en
 
 
 
-## 4. Define cómo la visualizarías en Grafana
+---
+
+### 4️⃣ Define Cómo la Visualizarías en Grafana
 
 Una vez tengas la métrica, debes pensar cómo se visualizaría.
 
@@ -80,7 +98,7 @@ Provee una interpretación en palabras con el propósito de la visualización
 
 ---
 
-## 5. Agrega el panel a tu dashboard
+### 5️⃣ Agrega el Panel a tu Dashboard
 
 Usando la métrica , crea **un panel** en Grafana que represente la nueva visualización.
 
@@ -101,5 +119,30 @@ Incluye una captura de pantalla del panel en tu bitácora.
 
 ---
 
-Esta etapa te permite practicar la **definición de métricas de dominio**, parte fundamental en el diseño de sistemas observables y en la ingeniería de software moderna.
+## ✅ Verificación
 
+**Asegúrate de haber completado:**
+- ☑️ Análisis del comportamiento del servicio
+- ☑️ Propuesta documentada de la métrica en tu [bitácora](../Bitacora.md)
+- ☑️ Implementación de la métrica en el código Java
+- ☑️ Verificación en el endpoint `/actuator/prometheus`
+- ☑️ Panel creado en Grafana con tu métrica
+- ☑️ Capturas de pantalla de todo el proceso
+
+> **💡 Reflexión:** Las métricas de dominio son más valiosas que las métricas técnicas genéricas, porque reflejan el comportamiento específico de tu negocio.
+
+---
+
+## 📍 Próximos Pasos
+
+Con tu métrica personalizada implementada y visualizada, es momento de analizar el comportamiento del sistema y detectar anomalías.
+
+### ➡️ [Continuar a la Etapa 3: Experimentación y Análisis](./5-analisis-dashboard.md)
+
+---
+
+<div align="center">
+
+[⬅️ Anterior: Etapa 2.1](./3-grafana-dashboard-base.md) | [🏠 Inicio](./main.md) | [➡️ Siguiente: Etapa 3](./5-analisis-dashboard.md)
+
+</div>

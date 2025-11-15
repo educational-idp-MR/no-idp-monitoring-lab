@@ -1,10 +1,27 @@
-# Etapa 1: Preparación del ambiente de laboratorio
+# 🚀 Etapa 1: Preparación del Ambiente de Laboratorio
 
-## Obtención de código fuente
-1. Crear un fork del siguiente repositorio : https://github.com/AndresMarcelo7/telemetry_lab
+<div align="center">
+
+[![Etapa](https://img.shields.io/badge/etapa-1-blue.svg)]()
+[![Duración](https://img.shields.io/badge/duraci%C3%B3n-20--30%20min-orange.svg)]()
+[![Dificultad](https://img.shields.io/badge/dificultad-b%C3%A1sica-green.svg)]()
+
+[🏠 Inicio](./main.md) | [➡️ Siguiente: Etapa 2](./2-metricas-iniciales.md)
+
+</div>
+
+---
+
+## 📦 Obtención de Código Fuente
+
+> **Paso 1:** Preparación del repositorio
+
+1. Crear un fork del siguiente repositorio: https://github.com/AndresMarcelo7/telemetry_lab
 2. Clonar el repositorio en local
 
-## Configuración de instancia de AWS
+---
+
+## ☁️ Configuración de Instancia de AWS
 
 1. Visitar la consola de [AWS](https://116981771521.signin.aws.amazon.com/console) e iniciar sesión utilizando su usuario de correo electrónico sin el dominio, (ejemplo: si su correo es `jose.perez-p@escuelaing.edu.co` entonces su usuario sería `jose.perez-p`) la contraseña será su código de estudiante (# de carnet)
 
@@ -69,7 +86,9 @@ sudo docker compose version
 
 Al finalizar el proceso debería obtener un mensaje similar al siguiente `Docker Compose version v2.40.3` . Para continuar, cierre la pestaña y vuelva a conectarse con la instancia.
 
-## Despliegue inicial del proyecto
+---
+
+## 🐳 Despliegue Inicial del Proyecto
 
 1. Diríjase a la consola principal de aws o a la barra de busqueda y buscar por el servicio S3.
 ![alt text](./resources/provisioning/s3console.png)
@@ -97,7 +116,7 @@ Al finalizar el proceso debería obtener un mensaje similar al siguiente `Docker
 
  7. Para ejecutar el proyecto, vamos a usar `docker compose` que nos permite orquestar los servicios mencionados en la arquitectura  (Nuestra app, grafana, prometheus y loki) mediante el uso de contenedores, para esto, vamos a usar el comando `docker compose up -d` . Al finalizar la ejecución del comando tendremos toda la infraestructura necesaria para el desarrollo del laboratorio.
 
- 8. Verificar que la aplicación está ejecutando. Para esto debes volver a la consola de instancias de EC2, seleccionar tu instancia y en el panel inferior encontrarás el DNS público de la instancia, lo usaremos para acceder a nuestra aplicación. 
+ 8. Verificar que la aplicación está ejecutando. Para esto debes volver a la consola de instancias de EC2, seleccionar tu instancia y en el panel inferior encontrarás el DNS público de la instancia, lo usaremos para acceder a nuestra aplicación.
 
 
  ![alt text](./resources/provisioning/DNS.png)
@@ -110,7 +129,31 @@ Deberías ver algo como esto:
 
 ![alt text](./resources/provisioning/running-app.png)
 
+---
 
+## ✅ Verificación del Ambiente
 
- 
+Si llegaste hasta aquí y puedes ver la aplicación corriendo en tu navegador, **¡felicidades!** Has completado exitosamente la preparación del ambiente.
 
+> **💡 Consejo:** Guarda el DNS público de tu instancia, lo necesitarás durante todo el laboratorio.
+
+**Registra en tu [bitácora](../Bitacora.md):**
+- ✍️ DNS público de tu instancia EC2
+- 📸 Captura de pantalla de la aplicación funcionando
+- 📝 Cualquier problema encontrado y cómo lo resolviste
+
+---
+
+## 📍 Próximos Pasos
+
+Ahora que tu ambiente está configurado, es momento de explorar las métricas que expone la aplicación.
+
+### ➡️ [Continuar a la Etapa 2: Métricas Iniciales](./2-metricas-iniciales.md)
+
+---
+
+<div align="center">
+
+[🏠 Volver al Inicio](./main.md) | [➡️ Siguiente: Etapa 2](./2-metricas-iniciales.md)
+
+</div>

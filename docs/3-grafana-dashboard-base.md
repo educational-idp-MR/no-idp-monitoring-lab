@@ -1,11 +1,28 @@
-# Etapa 2.1 – Creación del Dashboard Base en Grafana
+# 📈 Etapa 2.1: Creación del Dashboard Base en Grafana
 
-## Objetivo
+<div align="center">
+
+[![Etapa](https://img.shields.io/badge/etapa-2.1-blue.svg)]()
+[![Duración](https://img.shields.io/badge/duraci%C3%B3n-30--40%20min-orange.svg)]()
+[![Dificultad](https://img.shields.io/badge/dificultad-intermedia-yellow.svg)]()
+
+[⬅️ Anterior: Etapa 2](./2-metricas-iniciales.md) | [🏠 Inicio](./main.md) | [➡️ Siguiente: Etapa 2.2](./4-propuesta-metrica.md)
+
+</div>
+
+---
+
+## 🎯 Objetivo
+
 Construir un dashboard en Grafana que permita visualizar y analizar las métricas recolectadas por Prometheus y los logs procesados por Loki, comprendiendo cómo reflejan el comportamiento del sistema en términos de rendimiento, latencia y errores.
 
 ---
 
-## 1. Acceso a Grafana
+---
+
+## 📋 Construcción del Dashboard
+
+### 1️⃣ Acceso a Grafana
 
 1. Ingresa a la interfaz web de Grafana `http://{Public-DNS}:3000`
 2. En el menú lateral, selecciona **“Dashboard”** y luego haz clic en **“new”**. Finalmente, haz clic en **"Add Visualization"**
@@ -16,24 +33,21 @@ Construir un dashboard en Grafana que permita visualizar y analizar las métrica
 
 
 
-## 2. Panel 1 – Solicitudes procesadas por endpoint (por segundo)
+---
 
-### Propósito
-Crear la **primera visualización** en Grafana a partir de una métrica de Prometheus.  
+### 2️⃣ Panel 1: Solicitudes Procesadas por Endpoint (por segundo)
+
+> **Propósito:** Crear la primera visualización en Grafana a partir de una métrica de Prometheus.
 
 **En este panel queremos observar la tasa de solicitudes por segundo agrupada por cada endpoint (uri).**
 
----
-
-### Paso 1: Seleccionar Datasource
+#### 📘 Paso 1: Seleccionar Datasource
 
 1. Seleccionar `Prometheus` como **Data source** en la parte superior.
 
 ![alt text](./resources/grafana-inicial/datasource.png)
 
----
-
-### Paso 2: Conocer las dos formas de construir una consulta
+#### 📘 Paso 2: Conocer las dos formas de construir una consulta
 
 Grafana ofrece **dos modos de creación de consultas** 
 
@@ -54,9 +68,7 @@ Ambos modos producen el mismo resultado. Puedes cambiar entre ellos usando el bo
 **Code mode**
 ![alt text](./resources/grafana-inicial/code.png)
 
----
-
-### Paso 3: Configuración de la consulta
+#### 📘 Paso 3: Configuración de la consulta
 
 Este panel mostrará cuántas solicitudes procesa la aplicación por segundo, agrupadas por endpoint (`uri`).  
 Con esta visualización podrás identificar qué rutas se usan más, cómo varía la carga en el tiempo y si existen picos de tráfico que coincidan con aumentos en la latencia o errores.
@@ -78,7 +90,7 @@ Aggregate: Aggregate functions -> sum + `By label` uri
 ```
 
 
-### Paso 4: Configurar la visualización
+#### 📘 Paso 4: Configurar la visualización
 
 En el panel derecho de Grafana encontrarás varias secciones con opciones que te permiten personalizar la visualización.
 Por ejemplo:
@@ -112,7 +124,9 @@ Por ejemplo:
 
 Una vez terminado, guarda el dashboard, asigna un nombre incluyendo tu nombre de usuario. Por ejemplo `jose.perez-o-dashboard`
 
-## 3. Panel 2 – Latencia promedio de solicitudes
+---
+
+### 3️⃣ Panel 2: Latencia Promedio de Solicitudes
 
 Desde la vista de dashboard, usa la opción `Add` y luego la opción `Visualization` para añadir nuevos paneles.
 
@@ -120,9 +134,9 @@ Desde la vista de dashboard, usa la opción `Add` y luego la opción `Visualizat
 
 
 
-### Título sugerido
-**Latencia promedio de respuesta por endpoint(s)**
-### Interpretación 
+> **Título sugerido:** Latencia promedio de respuesta por endpoint(s)
+
+**Interpretación:** 
 Este panel muestra cuánto tarda la aplicación, en promedio, en responder a las solicitudes por cada endpoint.
 Una latencia estable y baja indica buen rendimiento; picos pueden sugerir saturación, procesamiento intensivo o problemas en la base de datos.
 ### Query PromQL
@@ -130,7 +144,7 @@ Una latencia estable y baja indica buen rendimiento; picos pueden sugerir satura
 ```promql
 sum by(uri) (rate(http_server_requests_seconds_sum[1m])) / sum by(uri) (rate(http_server_requests_seconds_count[1m]))
 ```
-### Configuraciones recomendadas
+**Configuraciones recomendadas:**
 
 **Tipo de visualización recomendado** : 
 -  **Time series** para observar su evolución temporal.
@@ -150,27 +164,26 @@ sum by(uri) (rate(http_server_requests_seconds_sum[1m])) / sum by(uri) (rate(htt
 **Nota:** Usualmente la latencia se mide utilizando histogramas en lugar de calcular simplemente el promedio, observando, por ejemplo el p99 de la latencia, o algun percentil de interés. Para más información sobre cómo añadir los histogramas a la aplicación puedes revisar este [blog](https://coderstower.com/2022/05/30/spring-boot-observability-validating-tail-latency-with-percentiles/) .
 
 
-## 4. Panel 3 – Errores de aplicación (HTTP 4xx / 5xx)
+---
 
-### Título sugerido
-**Tasa de errores de aplicación (HTTP 4xx / 5xx)**
+### 4️⃣ Panel 3: Errores de Aplicación (HTTP 4xx / 5xx)
 
-### Propósito
+> **Título sugerido:** Tasa de errores de aplicación (HTTP 4xx / 5xx)
+
+**Propósito:**
 Visualizar la frecuencia de errores que ocurren en la aplicación, diferenciando entre:
 - **Errores 4xx:** solicitudes inválidas o mal formadas (fallos del cliente).
 - **Errores 5xx:** fallos internos del servidor o la lógica de negocio.
 
 Este panel permitirá  detectar momentos en los que la aplicación falla y relacionarlos con cambios en la carga o en la latencia.
 
----
-
-### Query PromQL
+**Query PromQL:**
 ```promql
 sum by (status,uri) ( rate(http_server_requests_seconds_count{status=~"4..|5.."}[1m])
 )
 ```
 
-### Otros ajustes
+**Otros ajustes:**
 
 **Unit** Requests per second
 
@@ -179,21 +192,18 @@ sum by (status,uri) ( rate(http_server_requests_seconds_count{status=~"4..|5.."}
 
 Aplica los ajustes de visualización que consideres necesarios
 
-## 5. Panel 4 – Visualización de logs de aplicación (Loki)
-
-### Título sugerido
-**Explorador de logs**
-
 ---
 
-### Propósito
+### 5️⃣ Panel 4: Visualización de Logs de Aplicación (Loki)
+
+> **Título sugerido:** Explorador de logs
+
+**Propósito:**
 Observar los **logs generados por la aplicación Java** en tiempo real, filtrarlos por nivel de severidad (`INFO`, `WARN`, `ERROR`) y relacionarlos con las métricas vistas en los paneles anteriores.
 
 ![alt text](./resources/grafana-inicial/log-panel.png)
 
----
-
-### Paso 1: Crear la variable `$LogLevel`
+#### 📘 Paso 1: Crear la variable `$LogLevel`
 
 1. En la parte superior del dashboard, haz clic en el ícono ⚙️ **(Settings)** → **Variables** → **Add variable**.  
 2. Configura los siguientes campos:
@@ -212,9 +222,7 @@ Observar los **logs generados por la aplicación Java** en tiempo real, filtrarl
 Esta variable permitirá filtrar dinámicamente el nivel de logs visualizado desde un menú desplegable en la parte superior del dashboard.
 
 ![alt text](./resources/grafana-inicial/loglevelvar.png)
----
-
-### Paso 2: Crear el panel de logs
+#### 📘 Paso 2: Crear el panel de logs
 
 1. Desde el dashboard, selecciona **“Add panel”** y elige la fuente de datos `Loki`.
 2. En el campo de consulta, escribe la siguiente **query LogQL**:
@@ -233,7 +241,7 @@ y filtrando dinámicamente según el nivel seleccionado en $LogLevel.
 
 
 
-### Paso 3: Configuración de visualización
+#### 📘 Paso 3: Configuración de visualización
 
 **Tipo**: Logs panel
 
@@ -250,7 +258,9 @@ y filtrando dinámicamente según el nivel seleccionado en $LogLevel.
 
 
 
-# Extensión del laboratorio – Creación de visualizaciones adicionales
+---
+
+# 🌟 Extensión del Laboratorio: Creación de Visualizaciones Adicionales
 
 Ahora que ya configuraste tu dashboard base y los paneles principales (solicitudes, latencia, errores y logs), es momento de **explorar por tu cuenta las métricas y datos disponibles** para crear tus propias visualizaciones.
 
@@ -259,14 +269,12 @@ El objetivo es que practiques la interpretación de métricas y aprendas a elegi
 ---
 
 
-## 5. Extensión del dashboard – Creación de visualizaciones adicionales
+## 🛠️ Extensión del Dashboard
 
 Hasta este punto has construido el **dashboard base**, con paneles que muestran las solicitudes, la latencia, los errores y los logs de la aplicación.  
 Ahora usarás las métricas restantes disponibles en Prometheus y los datos de Loki para **ampliar tu dashboard** con tus propias visualizaciones.
 
----
-
-### 5.1 Instrucciones
+### 📝 Instrucciones
 
 Diseña **al menos dos nuevas visualizaciones** que complementen las ya existentes.  
 
@@ -278,7 +286,7 @@ Para cada una, define: (No olvides agregarlo a tu bitácora)
     - **Ajustes opcionales:** colores, unidades, leyenda, rango de tiempo o frecuencia de actualización.  
     - un breve comentario por cada panel adicional donde expliques qué conclusiones o patrones observaste.
 
-### 5.2 Recomendaciones
+### 💡 Recomendaciones
 
 - Explora las métricas disponibles en `actuator/prometheus`, adicionalmente puedes proponer nuevas visualizaciones de las métricas que ya se han utilizado si las consideras relevantes para monitorear la aplicación. 
 - Si usas **Loki**, puedes aplicar expresiones regulares y filtros para contar, agrupar o visualizar logs específicos (por ejemplo, errores, advertencias o mensajes informativos).  
@@ -286,7 +294,35 @@ Para cada una, define: (No olvides agregarlo a tu bitácora)
 - Ajusta los **colores y unidades** para que los datos sean fáciles de leer (por ejemplo, convertir bytes a MB o segundos a milisegundos).  
 - Prueba diferentes **tipos de panel** hasta encontrar la visualización que mejor comunique el comportamiento observado.  
 
-### 5.3 Análisis final (Bitacora)
+### 📝 Análisis Final (Bitácora)
 
 - ¿Qué indicadores te parecerían útiles para detectar fallos antes de que afecten a los usuarios?  
 - ¿Qué otros datos te gustaría visualizar si tuvieras más información disponible?
+
+---
+
+## ✅ Verificación
+
+**Asegúrate de haber completado:**
+- ☑️ Dashboard con 4 paneles base (solicitudes, latencia, errores, logs)
+- ☑️ Al menos 2 visualizaciones adicionales
+- ☑️ Documentación completa en tu [bitácora](../Bitacora.md)
+- ☑️ Capturas de pantalla de todos los paneles
+
+> **💡 Tip:** Un buen dashboard cuenta una historia sobre el comportamiento de tu sistema.
+
+---
+
+## 📍 Próximos Pasos
+
+Ahora que tienes un dashboard funcional, es momento de crear tu propia métrica personalizada.
+
+### ➡️ [Continuar a la Etapa 2.2: Propuesta de Métrica Personalizada](./4-propuesta-metrica.md)
+
+---
+
+<div align="center">
+
+[⬅️ Anterior: Etapa 2](./2-metricas-iniciales.md) | [🏠 Inicio](./main.md) | [➡️ Siguiente: Etapa 2.2](./4-propuesta-metrica.md)
+
+</div>

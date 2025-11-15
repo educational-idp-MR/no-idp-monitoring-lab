@@ -1,13 +1,28 @@
-# Etapa 3 – Experimentación y Análisis del Comportamiento del Sistema
+# 🔍 Etapa 3: Experimentación y Análisis del Sistema
 
-## Objetivo
+<div align="center">
+
+[![Etapa](https://img.shields.io/badge/etapa-3-blue.svg)]()
+[![Duración](https://img.shields.io/badge/duraci%C3%B3n-30--40%20min-orange.svg)]()
+[![Dificultad](https://img.shields.io/badge/dificultad-avanzada-red.svg)]()
+
+[⬅️ Anterior: Etapa 2.2](./4-propuesta-metrica.md) | [🏠 Inicio](./main.md)
+
+</div>
+
+---
+
+## 🎯 Objetivo
+
 Analizar el comportamiento real de la aplicación usando el dashboard construido en Grafana, identificar patrones, anomalías o comportamientos inesperados, y reflexionar sobre posibles causas basadas únicamente en las métricas y logs observados.
 
 Como parte de esta etapa, si detectas comportamientos anómalos en algún endpoint, deberás **intentar corregirlos modificando el código de la aplicación** y luego observar cómo cambian las métricas después del ajuste.
 
 ---
 
-## 1. Preparación del entorno
+## 📋 Proceso de Experimentación
+
+### 1️⃣ Preparación del Entorno
 
 1. Abre tu dashboard en Grafana.  
 2. Verifica que la aplicación esté corriendo.  
@@ -20,24 +35,24 @@ Ejecuta solicitudes de distintos tipos y frecuencias. Tu objetivo es observar c�
 
 ---
 
-## 2. Observación guiada: explorando el comportamiento del sistema
+### 2️⃣ Observación Guiada: Explorando el Comportamiento del Sistema
 
 Mientras realizas experimentos con la aplicación, analiza cómo reaccionan los paneles de tu dashboard. Usa estas preguntas como guía (No es necesario responderlas en la bitacora) :
 
-### 2.1. Tráfico y carga
+#### 📊 2.1. Tráfico y Carga
 - ¿La tasa de solicitudes se incrementa cuando envías varias peticiones seguidas?  
 - ¿Hay endpoints que muestran comportamientos distintos bajo la misma carga?
 
-### 2.2. Rendimiento
+#### ⚡ 2.2. Rendimiento
 - ¿La latencia se mantiene estable o presenta variaciones?  
 - ¿Los picos de latencia coinciden con momentos de mayor tráfico?
 
-### 2.3. Errores
+#### ⚠️ 2.3. Errores
 - ¿Aparecen errores en la visualización de códigos HTTP?  
 - ¿Se concentran en determinados endpoints?  
 - ¿Coinciden temporalmente con algo en los logs?
 
-### 2.4. Logs
+#### 📝 2.4. Logs
 Con el panel de logs basado en Loki:
 - Filtra por nivel (`INFO`, `WARN`, `ERROR`).  
 - ¿Se observan mensajes repetitivos?  
@@ -45,7 +60,7 @@ Con el panel de logs basado en Loki:
 
 ---
 
-## 3. Identificación de relaciones causa–efecto
+### 3️⃣ Identificación de Relaciones Causa-Efecto
 
 Intenta correlacionar lo que ves:
 
@@ -58,7 +73,7 @@ Ajusta el rango de tiempo para observar con más detalle (últimos 5 minutos, 15
 
 ---
 
-## 4. Detección de anomalías y puntos de interés
+### 4️⃣ Detección de Anomalías y Puntos de Interés
 
 Durante tu experimentación, presta atención a:
 
@@ -78,11 +93,11 @@ Documenta brevemente en tu bitacora:
 
 ---
 
-## 5. Intento de corrección de anomalías
+### 5️⃣ Intento de Corrección de Anomalías
 
 A partir de las anomalías identificadas previamente (variaciones en la latencia, errores frecuentes, respuestas inesperadas, etc.) intenta corregir el comportamiento observado.
 
-### 5.1. Modifica el código  
+#### 🔧 5.1. Modifica el Código  
 Revisa el código de la aplicación y realiza los ajustes que creas que podrían mitigar o corregir la anomalía.
 Algunas sugerencias:  
 - mejorar validaciones  
@@ -96,10 +111,10 @@ Documenta brevemente en tu bitacora los ajustes que realizaste.
 
 *Aplica el método científico → observar, formular hipótesis, intervenir y volver a observar.*
 
-### 5.2. Despliega la aplicación nuevamente  
+#### 🚀 5.2. Despliega la Aplicación Nuevamente  
 Compila, ejecuta y genera tráfico otra vez hacia el endpoint. (Revisa la seccion 1 - Preparación del ambiente)
 
-### 5.4. Observa cómo cambia la métrica  
+#### 👀 5.3. Observa Cómo Cambia la Métrica  
 - ¿El ajuste surtió efecto?   
 - Agrega una captura de pantalla del dashboard mostrando el estado del dashboard posterior al ajuste (configura un rango de tiempo que permita ver el antes y el despues).
 
@@ -107,7 +122,7 @@ Registra tus observaciones en la bitacora.
 
 ---
 
-## 6. Registro de observaciones
+### 6️⃣ Registro de Observaciones
 
 En tu bitácora del laboratorio documenta una breve **Reflexión final:**  
    - ¿Qué panel te resultó más útil para detectar problemas?  
@@ -116,8 +131,55 @@ En tu bitácora del laboratorio documenta una breve **Reflexión final:**
 
 ---
 
-## 7. Conclusión de la etapa
+## 🎉 Conclusión de la Etapa
 
 En esta etapa has utilizado métricas y logs como herramientas fundamentales para comprender el comportamiento de un sistema en ejecución.  
 También aplicaste un proceso iterativo de análisis y corrección, muy similar al que se usa en entornos reales de observabilidad, donde los dashboards son clave para detectar problemas y validar mejoras.
 
+---
+
+## ✅ Verificación Final
+
+**Asegúrate de haber completado:**
+- ☑️ Generación de tráfico variado hacia la aplicación
+- ☑️ Identificación de anomalías en el dashboard
+- ☑️ Análisis de correlaciones entre métricas y logs
+- ☑️ Modificación del código para corregir anomalías
+- ☑️ Validación de mejoras con métricas
+- ☑️ Documentación completa en tu [bitácora](../Bitacora.md)
+- ☑️ Capturas de pantalla del antes y después
+- ☑️ Reflexión final sobre las lecciones aprendidas
+
+---
+
+## 🎓 ¡Felicitaciones!
+
+Has completado exitosamente el laboratorio de Observabilidad y Telemetría. Ahora tienes experiencia práctica en:
+
+- ✅ Desplegar aplicaciones instrumentadas en la nube
+- ✅ Analizar métricas con Prometheus
+- ✅ Crear dashboards efectivos en Grafana
+- ✅ Implementar métricas personalizadas
+- ✅ Detectar y corregir anomalías usando observabilidad
+- ✅ Aplicar el método científico en ingeniería de software
+
+**Estas habilidades son fundamentales para la ingeniería de software moderna y DevOps.**
+
+---
+
+<div align="center">
+
+### 📚 Recursos para Continuar Aprendiendo
+
+- [Prometheus Best Practices](https://prometheus.io/docs/practices/naming/)
+- [Grafana Dashboard Best Practices](https://grafana.com/docs/grafana/latest/dashboards/build-dashboards/best-practices/)
+- [The Four Golden Signals](https://sre.google/sre-book/monitoring-distributed-systems/)
+- [Observability Engineering (O'Reilly Book)](https://www.oreilly.com/library/view/observability-engineering/9781492076438/)
+
+---
+
+[⬅️ Anterior: Etapa 2.2](./4-propuesta-metrica.md) | [🏠 Volver al Inicio](./main.md)
+
+**¡Gracias por completar este laboratorio! 🚀**
+
+</div>

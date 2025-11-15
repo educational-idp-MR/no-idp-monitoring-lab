@@ -1,0 +1,24 @@
+# GitHub Pages Configuration
+title: Laboratorio de Telemetría y Observabilidad
+description: Taller práctico de métricas, logs y dashboards con Prometheus, Grafana y Loki
+theme: jekyll-theme-cayman
+
+# GitHub metadata
+repository: AndresMarcelo7/no-idp-monitoring-lab
+
+# Enable plugins
+plugins:
+  - jekyll-relative-links
+
+# Enable emoji support
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+# Navigation
+show_downloads: false
+
+# Social links
+github:
+  is_project_page: true
