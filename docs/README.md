@@ -11,6 +11,11 @@
 
 ## ⏱️ Duración Estimada del Experimento
 
+> **💡 Tip para medir tu tiempo:**  
+> Puedes usar un cronómetro (en tu teléfono o [online](https://www.online-stopwatch.com/)) para trackear cuánto tiempo te toma completar el laboratorio. Esto te ayudará a planificar mejor tu sesión de estudio.
+
+### 📋 Tiempo Estimado por Etapa
+
 | Etapa | Descripción | Tiempo Estimado |
 |-------|-------------|:---------------:|
 | **Etapa 1** | Preparación del Ambiente | ⏱️ 20-30 min |

@@ -6,15 +6,14 @@ theme: jekyll-theme-cayman
 # GitHub metadata
 repository: AndresMarcelo7/no-idp-monitoring-lab
 
-# Enable plugins
-plugins:
-  - jekyll-relative-links
-
-# Enable emoji support
+# Markdown settings
 markdown: kramdown
 kramdown:
   input: GFM
   syntax_highlighter: rouge
+  hard_wrap: false
+  auto_ids: true
+  parse_block_html: true
 
 # Navigation
 show_downloads: false
@@ -22,3 +21,8 @@ show_downloads: false
 # Social links
 github:
   is_project_page: true
+
+# Exclude files from processing
+exclude:
+  - CHANGELOG.md
+  - assets/css/style.scss

@@ -11,73 +11,8 @@
 
 ## ⏱️ Duración Estimada del Experimento
 
-<div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 20px; border-radius: 10px; margin: 20px 0; text-align: center;">
-  <h3 style="margin: 0 0 10px 0; color: white;">⏱️ Tu Tiempo de Experimento</h3>
-  <div id="timer" style="font-size: 2.5rem; font-weight: bold; font-family: 'Courier New', monospace;">
-    00:00:00
-  </div>
-  <div style="margin-top: 10px; font-size: 0.9rem; opacity: 0.9;">
-    <button onclick="startTimer()" style="background: white; color: #667eea; border: none; padding: 8px 16px; border-radius: 5px; cursor: pointer; margin: 5px;">▶️ Iniciar</button>
-    <button onclick="pauseTimer()" style="background: white; color: #667eea; border: none; padding: 8px 16px; border-radius: 5px; cursor: pointer; margin: 5px;">⏸️ Pausar</button>
-    <button onclick="resetTimer()" style="background: white; color: #667eea; border: none; padding: 8px 16px; border-radius: 5px; cursor: pointer; margin: 5px;">🔄 Reiniciar</button>
-  </div>
-  <p style="margin: 10px 0 0 0; font-size: 0.85rem; opacity: 0.8;">El timer se guarda automáticamente en tu navegador</p>
-</div>
-
-<script>
-let timerInterval;
-let seconds = 0;
-let isRunning = false;
-
-// Load saved time from localStorage
-window.addEventListener('load', function() {
-  const savedTime = localStorage.getItem('labTimer');
-  const wasRunning = localStorage.getItem('labTimerRunning');
-  if (savedTime) {
-    seconds = parseInt(savedTime);
-    updateDisplay();
-  }
-  if (wasRunning === 'true') {
-    startTimer();
-  }
-});
-
-function startTimer() {
-  if (!isRunning) {
-    isRunning = true;
-    localStorage.setItem('labTimerRunning', 'true');
-    timerInterval = setInterval(function() {
-      seconds++;
-      updateDisplay();
-      localStorage.setItem('labTimer', seconds);
-    }, 1000);
-  }
-}
-
-function pauseTimer() {
-  isRunning = false;
-  localStorage.setItem('labTimerRunning', 'false');
-  clearInterval(timerInterval);
-}
-
-function resetTimer() {
-  pauseTimer();
-  seconds = 0;
-  updateDisplay();
-  localStorage.removeItem('labTimer');
-  localStorage.removeItem('labTimerRunning');
-}
-
-function updateDisplay() {
-  const hrs = Math.floor(seconds / 3600);
-  const mins = Math.floor((seconds % 3600) / 60);
-  const secs = seconds % 60;
-  document.getElementById('timer').textContent = 
-    String(hrs).padStart(2, '0') + ':' + 
-    String(mins).padStart(2, '0') + ':' + 
-    String(secs).padStart(2, '0');
-}
-</script>
+> **💡 Tip para medir tu tiempo:**  
+> Puedes usar un cronómetro (en tu teléfono o [online](https://www.online-stopwatch.com/)) para trackear cuánto tiempo te toma completar el laboratorio. Esto te ayudará a planificar mejor tu sesión de estudio.
 
 ### 📋 Tiempo Estimado por Etapa
 
