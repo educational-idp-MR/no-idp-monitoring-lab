@@ -228,35 +228,70 @@ class StageTimer {
 
 // Initialize timer when DOM is ready
 document.addEventListener('DOMContentLoaded', function() {
+  console.log('⏱️ Timer system initializing...');
   const timerContainer = document.getElementById('stage-timer');
+  
   if (timerContainer) {
     const stageId = timerContainer.getAttribute('data-stage-id');
     const stageName = timerContainer.getAttribute('data-stage-name');
+    console.log('✅ Timer found for:', stageName, '(ID:', stageId + ')');
+    
     const timer = new StageTimer(stageId, stageName);
     
     // Intercept navigation to next stage
+    console.log('🔗 Setting up navigation interception...');
     interceptNextStageNavigation(stageId, stageName, timer);
+  } else {
+    console.warn('⚠️ No timer container found on this page');
   }
 });
 
 // Intercept clicks on "Next Stage" links
 function interceptNextStageNavigation(currentStageId, currentStageName, timerInstance) {
-  // Find all navigation links that point to next stages
-  const navLinks = document.querySelectorAll('a[href*=".md"]');
+  // Find ALL links on the page
+  const allLinks = document.querySelectorAll('a');
+  console.log('🔍 Found', allLinks.length, 'links on page');
   
-  navLinks.forEach(link => {
+  let nextLinksFound = 0;
+  
+  allLinks.forEach(link => {
     const linkText = link.textContent.trim();
+    const linkHref = link.getAttribute('href') || '';
     
     // Check if it's a "Next" or "Siguiente" link
-    if (linkText.includes('➡️') || linkText.includes('Siguiente') || linkText.includes('Next')) {
+    // Must contain the right arrow emoji OR the word "Siguiente" AND point to another stage
+    const isNextLink = (
+      (linkText.includes('➡️') || linkText.includes('Siguiente') || linkText.toLowerCase().includes('next')) &&
+      !linkText.includes('⬅️') && // Not a back link
+      !linkText.includes('Anterior') && // Not a previous link
+      !linkText.includes('🏠') && // Not a home link
+      linkHref && // Has a href
+      linkHref !== '#' && // Not just an anchor
+      !linkHref.startsWith('http') // Not an external link
+    );
+    
+    if (isNextLink) {
+      nextLinksFound++;
+      console.log('➡️ Next link found:', linkText, '-> href:', linkHref);
+      
       link.addEventListener('click', function(e) {
+        console.log('👆 Click detected on:', linkText);
+        
         // Check if stage is not completed yet
         const completionKey = `stage_${currentStageId}_completed`;
         const isCompleted = localStorage.getItem(completionKey);
+        const currentTime = timerInstance.elapsedTime;
+        
+        console.log('📊 Status Check:');
+        console.log('  - Stage ID:', currentStageId);
+        console.log('  - Is Completed:', !!isCompleted);
+        console.log('  - Timer Time:', currentTime, 'ms');
+        console.log('  - Should show modal:', !isCompleted && currentTime > 0);
         
         // Only prompt if stage is not completed and timer has some time
-        if (!isCompleted && timerInstance.elapsedTime > 0) {
+        if (!isCompleted && currentTime > 0) {
           e.preventDefault(); // Stop navigation temporarily
+          console.log('✅ Showing modal...');
           
           const hours = Math.floor(timerInstance.elapsedTime / 3600000);
           const minutes = Math.floor((timerInstance.elapsedTime % 3600000) / 60000);
@@ -288,6 +323,12 @@ function interceptNextStageNavigation(currentStageId, currentStageName, timerIns
       });
     }
   });
+  
+  console.log(`✅ Navigation setup complete: ${nextLinksFound} "next" links intercepted`);
+  
+  if (nextLinksFound === 0) {
+    console.warn('⚠️ No "next" links found! The modal won\'t work.');
+  }
 }
 
 // Show custom dialog for saving time
