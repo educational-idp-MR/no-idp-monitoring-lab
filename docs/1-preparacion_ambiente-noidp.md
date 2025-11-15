@@ -160,7 +160,7 @@ Ahora que tu ambiente está configurado, es momento de explorar las métricas qu
 ---
 
 <div class="finish-stage-container">
-  <button id="finish-stage-btn" class="finish-stage-btn" data-next-url="./2-metricas-iniciales.md">
+  <button id="finish-stage-btn" class="finish-stage-btn" data-next-url="./2-metricas-iniciales">
     ✅ Finalizar Etapa y Continuar ➡️
   </button>
   <p class="finish-stage-info">

@@ -329,7 +329,7 @@ Ahora que tienes un dashboard funcional, es momento de crear tu propia métrica 
 ---
 
 <div class="finish-stage-container">
-  <button id="finish-stage-btn" class="finish-stage-btn" data-next-url="./4-propuesta-metrica.md">
+  <button id="finish-stage-btn" class="finish-stage-btn" data-next-url="./4-propuesta-metrica">
     ✅ Finalizar Etapa y Continuar ➡️
   </button>
   <p class="finish-stage-info">

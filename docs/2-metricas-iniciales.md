@@ -124,7 +124,7 @@ Ahora que comprendes las métricas que expone la aplicación, es momento de visu
 ---
 
 <div class="finish-stage-container">
-  <button id="finish-stage-btn" class="finish-stage-btn" data-next-url="./3-grafana-dashboard-base.md">
+  <button id="finish-stage-btn" class="finish-stage-btn" data-next-url="./3-grafana-dashboard-base">
     ✅ Finalizar Etapa y Continuar ➡️
   </button>
   <p class="finish-stage-info">

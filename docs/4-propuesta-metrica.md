@@ -149,7 +149,7 @@ Con tu métrica personalizada implementada y visualizada, es momento de analizar
 ---
 
 <div class="finish-stage-container">
-  <button id="finish-stage-btn" class="finish-stage-btn" data-next-url="./5-analisis-dashboard.md">
+  <button id="finish-stage-btn" class="finish-stage-btn" data-next-url="./5-analisis-dashboard">
     ✅ Finalizar Etapa y Continuar ➡️
   </button>
   <p class="finish-stage-info">
