@@ -269,16 +269,14 @@ Ahora usarás las métricas restantes disponibles en Prometheus y los datos de L
 ### 5.1 Instrucciones
 
 Diseña **al menos dos nuevas visualizaciones** que complementen las ya existentes.  
-Para cada una, define:
 
-- **Propósito:** qué quieres analizar o mostrar.  
-- **Título del panel:** un nombre claro y descriptivo.  
-- **Query:** la expresión PromQL o LogQL que usarás.  
-- **Tipo de visualización:** *Time series*, *Gauge*, *Bar chart*, *Stat*, *Logs*, entre otros.  
-- **Ajustes opcionales:** colores, unidades, leyenda, rango de tiempo o frecuencia de actualización.  
-- En tu bitácora del laboratorio, agrega un breve comentario por cada panel adicional (2–3 frases) donde expliques:
-    - Qué información aporta.  
-    - Qué conclusiones o patrones observas.
+Para cada una, define: (No olvides agregarlo a tu bitácora)
+    - **Propósito:** qué quieres analizar o mostrar.  
+    - **Título del panel:** un nombre claro y descriptivo.  
+    - **Query:** la expresión PromQL o LogQL que usarás.  
+    - **Tipo de visualización:** *Time series*, *Gauge*, *Bar chart*, *Stat*, *Logs*, entre otros.  
+    - **Ajustes opcionales:** colores, unidades, leyenda, rango de tiempo o frecuencia de actualización.  
+    - un breve comentario por cada panel adicional donde expliques qué conclusiones o patrones observaste.
 
 ### 5.2 Recomendaciones
 
@@ -288,9 +286,7 @@ Para cada una, define:
 - Ajusta los **colores y unidades** para que los datos sean fáciles de leer (por ejemplo, convertir bytes a MB o segundos a milisegundos).  
 - Prueba diferentes **tipos de panel** hasta encontrar la visualización que mejor comunique el comportamiento observado.  
 
-### 5.3 Análisis final
+### 5.3 Análisis final (Bitacora)
 
-- ¿Qué comportamiento del sistema pudiste observar que no era evidente en el dashboard inicial?  
-- ¿Qué métricas se relacionan entre sí? (por ejemplo, CPU con latencia, memoria con errores, etc.)  
 - ¿Qué indicadores te parecerían útiles para detectar fallos antes de que afecten a los usuarios?  
 - ¿Qué otros datos te gustaría visualizar si tuvieras más información disponible?

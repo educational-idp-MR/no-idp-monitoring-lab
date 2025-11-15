@@ -22,7 +22,7 @@ Ejecuta solicitudes de distintos tipos y frecuencias. Tu objetivo es observar c�
 
 ## 2. Observación guiada: explorando el comportamiento del sistema
 
-Mientras realizas experimentos con la aplicación, analiza cómo reaccionan los paneles de tu dashboard. Usa estas preguntas como guía :
+Mientras realizas experimentos con la aplicación, analiza cómo reaccionan los paneles de tu dashboard. Usa estas preguntas como guía (No es necesario responderlas en la bitacora) :
 
 ### 2.1. Tráfico y carga
 - ¿La tasa de solicitudes se incrementa cuando envías varias peticiones seguidas?  
@@ -69,76 +69,47 @@ Durante tu experimentación, presta atención a:
 - Logs con mensajes atípicos o en cantidades inusuales  
 - Endpoints cuyos valores no cambian como esperarías  
 
-Reflexiona:
+Documenta brevemente en tu bitacora:
 
-- ¿Qué valores parecen normales?  
-- ¿Qué te llama la atención?  
+- ¿Qué valores te parecen extraños?  
 - ¿Qué panel te alertó primero?  
-- ¿Cómo lo confirmaste?
+- ¿Cómo describirías la anomalía?
+- ¿Cual podria ser la causa de la anomalía? <--- Intenta adivinar la causa, no es necesario que sea correcta.
 
 ---
 
-## 5. *Tarea adicional*: Intento de corrección de anomalías
+## 5. Intento de corrección de anomalías
 
-Si en tu análisis detectas **anomalías persistentes** en algún endpoint (variaciones en la latencia, errores frecuentes, respuestas inesperadas, etc.):
+A partir de las anomalías identificadas previamente (variaciones en la latencia, errores frecuentes, respuestas inesperadas, etc.) intenta corregir el comportamiento observado.
 
-### ✏️ 5.1. Propón una posible causa  
-Basándote en las métricas y en los logs, escribe una hipótesis.  
-Por ejemplo:  
-- “Este endpoint parece más lento que los demás porque…”  
-- “Los errores aumentan cuando hago este tipo de solicitudes…”  
-
-### 🛠️ 5.2. Modifica el código  
-Revisa el código de la aplicación y realiza un pequeño ajuste que creas que podría mitigar o corregir el comportamiento observado:  
+### 5.1. Modifica el código  
+Revisa el código de la aplicación y realiza los ajustes que creas que podrían mitigar o corregir la anomalía.
+Algunas sugerencias:  
 - mejorar validaciones  
 - ajustar lógica interna  
 - refactorizar un fragmento  
-- mover cálculos  
 - corregir una condición  
 - optimizar manipulación de datos  
 - mejorar manejo de excepciones  
 
-*No detectar con: lo importante es aplicar el método científico → observar, formular hipótesis, intervenir y volver a observar.)*
+Documenta brevemente en tu bitacora los ajustes que realizaste.
 
-### 5.3. Despliega la aplicación nuevamente  
-Compila, ejecuta y genera tráfico otra vez hacia el endpoint.
+*Aplica el método científico → observar, formular hipótesis, intervenir y volver a observar.*
+
+### 5.2. Despliega la aplicación nuevamente  
+Compila, ejecuta y genera tráfico otra vez hacia el endpoint. (Revisa la seccion 1 - Preparación del ambiente)
 
 ### 5.4. Observa cómo cambia la métrica  
-¿El ajuste surtió efecto?  
-- ¿La latencia cambió?  
-- ¿Los errores disminuyeron?  
-- ¿Los logs muestran un comportamiento más estable?  
+- ¿El ajuste surtió efecto?   
+- Agrega una captura de pantalla del dashboard mostrando el estado del dashboard posterior al ajuste (configura un rango de tiempo que permita ver el antes y el despues).
 
-Registra tus observaciones.
+Registra tus observaciones en la bitacora.
 
 ---
 
 ## 6. Registro de observaciones
 
-En tu bitácora del laboratorio documenta:
-
-1. **Valores observados**  : Incluye una foto con: 
-   - Tiempos de respuesta  
-   - Tasas de solicitudes  
-   - Errores  
-   - Anomalías detectadas  
-
-2. **Correlaciones**  
-   - Qué paneles se relacionan entre sí  
-   - Qué métricas cambiaron al mismo tiempo  
-
-3. **Anomalías detectadas**  
-   - Cuándo ocurrieron  
-   - Cómo se identificaron:
-        - Qué viste en el dashboard  
-        - Qué viste en los logs  
-
-4. **Intervención (si aplica)**  
-   - Hipótesis inicial sobre la causa  
-   - Ajuste realizado en el código  
-   - Impacto después del cambio  (Imagen  y analisis del estado del dashboard posterior al ajuste)
-
-5. **Reflexión final**  
+En tu bitácora del laboratorio documenta una breve **Reflexión final:**  
    - ¿Qué panel te resultó más útil para detectar problemas?  
    - ¿Qué métrica aporta mayor valor para monitorear un sistema real?  
    - ¿Qué agregarías o mejorarías en tu dashboard?

@@ -60,6 +60,8 @@ El microservicio Java expone sus métricas en formato Prometheus a través del e
 1. Abre el endpoint de métricas en tu navegador `http://{Public-DNS}/actuator/prometheus`. Deberías encontrar algo como lo que se muestra en la siguiente imagen :
 ![alt text](./resources/metricas-iniciales/metricpath.png)
 
+En la imagen se resaltan los distintos elementos que expone prometheus sobre cada metrica, como el nombre, el tipo, las etiquetas el valor y descripción. 
+
 
 2. Examina el contenido del endpoint y busca métricas relacionadas con:
 - Número de solicitudes HTTP 
@@ -70,12 +72,9 @@ El microservicio Java expone sus métricas en formato Prometheus a través del e
 3.  En tu bitácora de laboratorio:
 
     - Selecciona tres métricas relevantes y describe qué información aportan sobre el sistema.
-        -  Menciona que tipo de métrica son (gauge, counter, histograma)
-        - Con que otras métricas podría estar relacionada? Por ejemplo, un aumento en peticiones podría influir en el uso de CPU
-        - Cómo nos ayuda esta métrica a identificar problemas de rendimiento o disponibilidad?
-
-    - ¿Qué unidades o etiquetas se utilizan para agrupar los datos?
-
-    - ¿Cuáles métricas crees que serían más útiles para diagnosticar el rendimiento del sistema?
+        -  Menciona qué tipo de métrica es (gauge, counter, histograma, summary)
+        - Con qué otras métricas podría estar relacionada (si aplica)? Por ejemplo, un aumento en peticiones podría influir en el uso de CPU
+        - En qué escenarios puede ayudar esta métrica?
+        - Qué etiquetas se utilizan para agrupar los datos (si aplica)?
 
 
