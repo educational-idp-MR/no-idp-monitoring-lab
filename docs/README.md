@@ -44,25 +44,19 @@ Al finalizar este laboratorio, serás capaz de:
 
 Este laboratorio utiliza los siguientes componentes:
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│                        AWS EC2 Instance                      │
-│  ┌─────────────────────────────────────────────────────┐   │
-│  │                    Docker Compose                    │   │
-│  │                                                      │   │
-│  │  ┌──────────────┐  ┌──────────────┐                │   │
-│  │  │   Java App   │  │  Prometheus  │                │   │
-│  │  │ (Spring Boot)│◄─┤  (Métricas)  │                │   │
-│  │  └──────┬───────┘  └──────────────┘                │   │
-│  │         │                                           │   │
-│  │         ▼                                           │   │
-│  │  ┌──────────────┐  ┌──────────────┐                │   │
-│  │  │     Loki     │  │   Grafana    │                │   │
-│  │  │    (Logs)    │◄─┤ (Visualización)               │   │
-│  │  └──────────────┘  └──────────────┘                │   │
-│  └─────────────────────────────────────────────────────┘   │
-└─────────────────────────────────────────────────────────────┘
-```
+![alt text](./resources/architecture.png)
+
+Cada estudiante dispone de una aplicación Java, que ya está configurada para exponer métricas mediante el endpoint `actuator/prometheus`. Adicionalmente se incluye un archivo docker-compose para 
+facilitar el despliegue de la aplicación junto con los componentes relacionados a la recolección y visualización de métricas y logs.
+
+El archivo docker-compose permite crear los siguientes componentes:
+1. Loki se encarga de la recolección y almacenamiento de logs de las aplicaciones de los estudiantes
+2. Prometheus se encarga de la recolección y almacenamiento de métricas de las aplicaciones de los estudiantes
+3. Grafana se integra con Loki y Prometheus para permitir la creación de visualizaciones a partir de los datos almacenados. 
+
+Para el despliegue de la aplicación, cada estudiante cuanta con un usuario en AWS con el que podrán crear una máquina de EC2 ,
+adicionalmente, podrán hacer uso de S3 para almacenar el código y descargarlo desde la instancia. Cada instancia esta configurada con
+`Session Manager` que permite al estudiante ingresar a la consola de control de la instancia desde la interfaz web de AWS.
 
 **Stack Tecnológico:**
 - 🚀 **Aplicación:** Java Spring Boot (URL Shortener)
