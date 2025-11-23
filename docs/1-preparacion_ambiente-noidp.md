@@ -6,7 +6,7 @@
 [![Duración](https://img.shields.io/badge/duraci%C3%B3n-20--30%20min-orange.svg)]()
 [![Dificultad](https://img.shields.io/badge/dificultad-b%C3%A1sica-green.svg)]()
 
-[🏠 Inicio](./main.md) | [➡️ Siguiente: Etapa 2](./2-metricas-iniciales.md)
+[🏠 Inicio](./README.md) | [➡️ Siguiente: Etapa 2](./2-metricas-iniciales.md)
 
 </div>
 
@@ -172,6 +172,6 @@ Ahora que tu ambiente está configurado, es momento de explorar las métricas qu
 
 <div align="center">
 
-[🏠 Volver al Inicio](./main.md) | [➡️ Siguiente: Etapa 2](./2-metricas-iniciales.md)
+[🏠 Volver al Inicio](./README.md) | [➡️ Siguiente: Etapa 2](./2-metricas-iniciales.md)
 
 </div>

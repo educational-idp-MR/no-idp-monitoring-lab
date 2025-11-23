@@ -6,7 +6,7 @@
 [![Duración](https://img.shields.io/badge/duraci%C3%B3n-30--40%20min-orange.svg)]()
 [![Dificultad](https://img.shields.io/badge/dificultad-intermedia-yellow.svg)]()
 
-[⬅️ Anterior: Etapa 2](./2-metricas-iniciales.md) | [🏠 Inicio](./main.md) | [➡️ Siguiente: Etapa 2.2](./4-propuesta-metrica.md)
+[⬅️ Anterior: Etapa 2](./2-metricas-iniciales.md) | [🏠 Inicio](./README.md) | [➡️ Siguiente: Etapa 2.2](./4-propuesta-metrica.md)
 
 </div>
 
@@ -341,6 +341,6 @@ Ahora que tienes un dashboard funcional, es momento de crear tu propia métrica 
 
 <div align="center">
 
-[⬅️ Anterior: Etapa 2](./2-metricas-iniciales.md) | [🏠 Inicio](./main.md) | [➡️ Siguiente: Etapa 2.2](./4-propuesta-metrica.md)
+[⬅️ Anterior: Etapa 2](./2-metricas-iniciales.md) | [🏠 Inicio](./README.md) | [➡️ Siguiente: Etapa 2.2](./4-propuesta-metrica.md)
 
 </div>

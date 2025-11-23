@@ -6,7 +6,7 @@
 [![Duración](https://img.shields.io/badge/duraci%C3%B3n-30--40%20min-orange.svg)]()
 [![Dificultad](https://img.shields.io/badge/dificultad-avanzada-red.svg)]()
 
-[⬅️ Anterior: Etapa 2.2](./4-propuesta-metrica.md) | [🏠 Inicio](./main.md)
+[⬅️ Anterior: Etapa 2.2](./4-propuesta-metrica.md) | [🏠 Inicio](./README.md)
 
 </div>
 
@@ -185,7 +185,7 @@ Has completado exitosamente el laboratorio de Observabilidad y Telemetría. Ahor
 
 ---
 
-[⬅️ Anterior: Etapa 2.2](./4-propuesta-metrica.md) | [🏠 Volver al Inicio](./main.md)
+[⬅️ Anterior: Etapa 2.2](./4-propuesta-metrica.md) | [🏠 Volver al Inicio](./README.md)
 
 ---
 
