@@ -172,6 +172,8 @@ Has completado exitosamente el laboratorio de Observabilidad y Telemetría. Ahor
 
 **Estas habilidades son fundamentales para la ingeniería de software moderna y DevOps.**
 
+---
+
 ## Exploración Adicional (Opcional)
 
 Si aún cuentas con tiempo disponible, siéntete libre de explorar el entorno del laboratorio y las capacidades de las herramientas por tu cuenta. Algunas ideas:
