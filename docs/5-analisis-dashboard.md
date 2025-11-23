@@ -172,6 +172,21 @@ Has completado exitosamente el laboratorio de Observabilidad y Telemetría. Ahor
 
 **Estas habilidades son fundamentales para la ingeniería de software moderna y DevOps.**
 
+## Exploración Adicional (Opcional)
+
+Si aún cuentas con tiempo disponible, siéntete libre de explorar el entorno del laboratorio y las capacidades de las herramientas por tu cuenta. Algunas ideas:
+
+- Prueba nuevos filtros y vistas en Grafana
+- Explora consultas más avanzadas en Loki
+- Agrega paneles adicionales al dashboard
+- Revisa cómo cambian las métricas con diferentes patrones de tráfico
+- Observa qué ocurre si cargas endpoints menos utilizados
+- Investiga si puedes detectar comportamientos que pasaron desapercibidos
+- Explora otras funcionalidades de grafana
+
+### 📌 Importante:
+Si encuentras algo curioso, inesperado o relevante, documenta tus hallazgos adicionales en tu bitácora.
+No necesitas explicaciones profundas — basta con registrar qué observaste y por qué te llamó la atención.
 ---
 
 <div align="center">
