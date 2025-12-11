@@ -138,6 +138,158 @@ Deberías ver algo como esto:
 
 ---
 
+ ---
+
+### Explicación del archivo `docker-compose.yml`
+
+A continuación se detalla qué hace cada sección del archivo `docker-compose.yml`, qué servicios se despliegan y en qué puertos estarán disponibles.
+
+---
+
+#### Redes
+
+```yaml
+networks:
+  telemetry:
+    name: telemetry
+    driver: bridge
+```
+
+Esta sección crea una red Docker llamada **telemetry**.  
+Todos los servicios se conectan a esta red para poder comunicarse entre sí utilizando nombres de servicio.
+
+---
+
+#### Servicio: Aplicación Java
+
+```yaml
+  java-application:
+    build:
+      context: java-application
+      dockerfile: Dockerfile
+    container_name: java-application
+    ports:
+      - "80:8080"
+    networks:
+      - telemetry
+```
+
+- Construye y ejecuta la aplicación Java del laboratorio.  
+- Expone el **puerto 8080 interno** en el **puerto 80** del servidor EC2.  
+- La aplicación será accesible desde el navegador mediante:
+
+```
+http://{Public-DNS}
+```
+
+---
+
+#### Servicio: Prometheus
+
+```yaml
+  prometheus:
+    container_name: prometheus-svc
+    image: prom/prometheus:v3.3.0
+    ports: 
+      - "9091:9090"
+    volumes:
+      - ./prometheus/prometheus.yaml:/etc/prometheus/prometheus.yaml
+    command: --config.file=/etc/prometheus/prometheus.yaml
+    networks:
+      - telemetry
+```
+
+- Prometheus recolecta métricas expuestas por la aplicación y otros servicios.  
+- Utiliza el archivo `./prometheus/promehteus.yaml` para especificar una configuración personalizada (Targets de monitoreo).  
+- Se expone en el puerto **9091** del host.
+
+---
+
+#### Servicio: Loki (Logs)
+
+```yaml
+  loki:
+    image: grafana/loki:2.9.4
+    container_name: loki
+    command: -config.file=/etc/loki/loki.yaml
+    volumes:
+      - ./loki-data/loki.yaml:/etc/loki/loki.yaml
+    ports:
+      - "3100:3100"
+      - "9096:9096"
+    networks:
+      - telemetry
+```
+
+- Loki recibe y almacena los logs enviados por Promtail.  
+- Expone su API en el puerto **3100** y sus métricas internas en **9096**.
+
+---
+
+#### Servicio: Promtail
+
+```yaml
+  promtail:
+    image: grafana/promtail:2.9.4
+    container_name: promtail
+    volumes:
+      - /var/lib/docker/containers:/var/lib/docker/containers:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./loki-data/promtail-config.yaml:/etc/promtail/config.yaml
+    command: -config.file=/etc/promtail/config.yaml
+    depends_on:
+      - loki
+    networks:
+      - telemetry
+```
+
+- Promtail actúa como agente recolector de logs.  
+- Lee los logs de los contenedores Docker del sistema.  
+- Envía estos logs hacia Loki.  
+- No expone puertos hacia el exterior.
+
+---
+
+#### Servicio: Grafana
+
+```yaml
+  grafana:
+    image: grafana/grafana:11.6.1
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_AUTH_BASIC_ENABLED=false
+      - GF_AUTH_ANONYMOUS_ENABLED=true
+      - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
+      - GF_PATHS_PROVISIONING=/etc/grafana/provisioning
+    volumes:
+      - grafana-storage:/var/lib/grafana
+    networks:
+      - telemetry
+```
+
+- Grafana permite visualizar métricas y logs del sistema.  
+- Se expone en el puerto **3000**.
+
+Acceso:
+
+```
+http://{Public-DNS}:3000
+```
+
+---
+
+#### Volúmenes
+
+```yaml
+volumes:
+  grafana-storage:
+```
+
+El volumen **grafana-storage** permite persistir dashboards, configuraciones y datos de Grafana incluso si el contenedor es reiniciado.
+
+---
+
 ## ✅ Verificación del Ambiente
 
 Si llegaste hasta aquí y puedes ver la aplicación corriendo en tu navegador, **¡felicidades!** Has completado exitosamente la preparación del ambiente.
