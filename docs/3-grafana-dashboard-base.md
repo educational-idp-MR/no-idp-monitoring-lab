@@ -27,12 +27,31 @@ Construir un dashboard en Grafana que permita visualizar y analizar las métrica
 
 ---
 
-## 📋 Construcción del Dashboard
-
-### 1️⃣ Acceso a Grafana
+## 1️⃣ Acceso  y configuración de Grafana
 
 1. Ingresa a la interfaz web de Grafana `http://{Public-DNS}:3000`
-2. En el menú lateral, selecciona **“Dashboard”** y luego haz clic en **“new”**. Finalmente, haz clic en **"Add Visualization"**
+
+### Configuración de datasources
+1. Acceder a la pestaña de datasources en el panel de la izquierda
+![alt text](./resources/grafana-inicial/datasources.png)
+
+2. Haz click en `Add Datasource` y selecciona  `Prometheus`
+
+3. Configura la Url de prometheus utilizando la siguiente URL `http://prometheus:9090`, los otros campos pueden dejarse con su valor por defecto.
+![alt text](./resources/grafana-inicial/prometheusDs.png)
+
+4. A continuación da click en `Save & test`, deberías ver un mensaje como el siguiente
+
+![alt text](./resources/grafana-inicial/prometheus-conf.png)
+
+5. Sigue los mismos pasos para configurar  el datasource de `Loki`. Para esto debes asegurarte de seleccionar la integración de `Loki` y utilizar la siguiente url `http://loki:3100`
+
+
+### Integración de Loki
+
+## 📋 Construcción del Dashboard
+
+En el menú lateral, selecciona **“Dashboard”** y luego haz clic en **“new”**. Finalmente, haz clic en **"Add Visualization"**
 
 ![alt text](./resources/grafana-inicial/grafana1.png)
 
