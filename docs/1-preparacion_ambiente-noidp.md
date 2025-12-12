@@ -177,10 +177,14 @@ Todos los servicios se conectan a esta red para poder comunicarse entre sí util
 - Construye y ejecuta la aplicación Java del laboratorio.  
 - Expone el **puerto 8080 interno** en el **puerto 80** del servidor EC2.  
 - La aplicación será accesible desde el navegador mediante:
-
 ```
 http://{Public-DNS}
 ```
+- En la siguiente imagen se muestra  la configuración del archivo  `application.properties` de `SpringBoot`,  esto permite que la aplicación  exponga las métricas por medio del endpoint `/actuator/prometheus`. Adicionalmente contiene algunas configuraciones con respecto al nivel y formato de logs.
+
+![alt text](./resources/provisioning/java-conf.png)
+
+> **💡 Nota importante:** Estas configuraciones ya vienen incluidas en el proyecto, por lo que no necesitas modificarlas. Sin embargo, es importante que entiendas qué hacen, ya que son la base para todo el monitoreo que implementarás en las siguientes etapas.
 
 ---
 
