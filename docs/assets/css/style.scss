@@ -1,0 +1,152 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+/* Custom styles for the lab documentation */
+
+/* Improve navigation buttons */
+.navigation-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin: 2rem 0;
+  gap: 1rem;
+}
+
+/* Badge styling */
+img[alt*="badge"] {
+  display: inline-block;
+  margin: 0.2rem;
+}
+
+/* Better callout boxes */
+blockquote {
+  border-left: 4px solid #0366d6;
+  background-color: #f6f8fa;
+  padding: 1rem 1.5rem;
+  margin: 1.5rem 0;
+  border-radius: 4px;
+}
+
+blockquote p:first-child strong {
+  color: #0366d6;
+}
+
+/* Step numbering */
+h3[id*="️⃣"]::before {
+  content: "";
+  display: inline-block;
+  margin-right: 0.5rem;
+}
+
+/* Improve code blocks */
+pre {
+  border-radius: 6px;
+  border: 1px solid #e1e4e8;
+  background-color: #f6f8fa;
+}
+
+code {
+  background-color: #f6f8fa;
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+  font-size: 85%;
+}
+
+/* Table improvements */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1.5rem 0;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+table th {
+  background-color: #0366d6;
+  color: white;
+  font-weight: 600;
+  padding: 12px;
+  text-align: left;
+}
+
+table td {
+  padding: 12px;
+  border-bottom: 1px solid #e1e4e8;
+}
+
+table tr:hover {
+  background-color: #f6f8fa;
+}
+
+/* Checkboxes */
+ul li input[type="checkbox"] {
+  margin-right: 0.5rem;
+}
+
+/* Centered content */
+div[align="center"] {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+/* Links styling */
+a {
+  text-decoration: none;
+  color: #0366d6;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Improve header spacing */
+h1, h2, h3 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  border-bottom: 2px solid #eaecef;
+  padding-bottom: 0.5rem;
+}
+
+h2 {
+  border-bottom: 1px solid #eaecef;
+  padding-bottom: 0.5rem;
+}
+
+/* Image captions */
+img + em {
+  display: block;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #586069;
+  margin-top: 0.5rem;
+}
+
+/* Responsive images */
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  margin: 1rem 0;
+}
+
+/* ASCII art diagram */
+pre code {
+  font-family: 'Courier New', monospace;
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+/* Emoji sizing */
+img.emoji {
+  box-shadow: none;
+  border-radius: 0;
+  margin: 0;
+  display: inline;
+  height: 1.2em;
+  vertical-align: middle;
+}
