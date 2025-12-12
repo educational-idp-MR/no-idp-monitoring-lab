@@ -93,10 +93,10 @@ Durante tu experimentación, presta atención a:
 
 Documenta brevemente en tu bitacora:
 
-- ¿Qué valores te parecen extraños?  
-- ¿Qué panel te alertó primero?  
 - ¿Cómo describirías la anomalía?
+- ¿Qué paneles te ayudaron a identificar la anomalía?  
 - ¿Cual podria ser la causa de la anomalía? <--- Intenta adivinar la causa, no es necesario que sea correcta.
+- Añade una captura de pantalla del dashboard mostrando la anomalía
 
 ---
 
@@ -121,8 +121,9 @@ Documenta brevemente en tu bitacora los ajustes que realizaste.
 #### 🚀 5.2. Despliega la Aplicación Nuevamente  
 Compila, ejecuta y genera tráfico otra vez hacia el endpoint. (Revisa la seccion 1 - Preparación del ambiente)
 
-#### 👀 5.3. Observa Cómo Cambia la Métrica  
-- ¿El ajuste surtió efecto?   
+### 5.4. Observa cómo cambia la métrica  
+- ¿El ajuste surtió efecto?
+- Analiza el impacto del cambio, ¿la latencia cambio? ¿los errores disminuyeron?   
 - Agrega una captura de pantalla del dashboard mostrando el estado del dashboard posterior al ajuste (configura un rango de tiempo que permita ver el antes y el despues).
 
 Registra tus observaciones en la bitacora.
