@@ -30,7 +30,7 @@
 
 ## ☁️ Configuración de Instancia de AWS
 
-1. Visitar la consola de [AWS](https://116981771521.signin.aws.amazon.com/console) e iniciar sesión utilizando su usuario de correo electrónico sin el dominio, (ejemplo: si su correo es `jose.perez-p@escuelaing.edu.co` entonces su usuario sería `jose.perez-p`) la contraseña será su código de estudiante (# de carnet)
+1. Visitar la consola de [AWS](https://116981771521.signin.aws.amazon.com/console) e iniciar sesión utilizando su usuario de correo electrónico sin el dominio, (ejemplo: si su correo es `jose.perez-p@escuelaing.edu.co` entonces su usuario sería `jose.perez-p`) la contraseña será su nombre de usuario de la escuela (modificando "." por "_") con la primera letra en Mayúscula + "\_" + código de estudiante (# de carnet) **EJEMPLO: para pepe.perez@escuelaing.edu.co con carnet 123456 la contraseña será Pepe_perez_123456**
 
 2. Asegurese que la región de la cuenta sea us-east-1 - Estados Unidos (Norte de Virginia) 
 
