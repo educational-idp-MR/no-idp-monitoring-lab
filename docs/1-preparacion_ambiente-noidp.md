@@ -23,7 +23,7 @@
 
 > **Paso 1:** Preparación del repositorio
 
-1. Crear un fork del siguiente repositorio: https://github.com/AndresMarcelo7/telemetry_lab
+1. Crear un fork del siguiente repositorio: [https://github.com/AndresMarcelo7/telemetry_lab](https://github.com/AndresMarcelo7/telemetry_lab)
 2. Clonar el repositorio en local
 
 ---
@@ -300,7 +300,7 @@ Si llegaste hasta aquí y puedes ver la aplicación corriendo en tu navegador, *
 
 > **💡 Consejo:** Guarda el DNS público de tu instancia, lo necesitarás durante todo el laboratorio.
 
-**Registra en tu [bitácora](../Bitacora.md):**
+**Registra en tu bitácora(La puedes encontrar en la ruta /docs/Bitacora.md de tu repositorio):**
 - ✍️ DNS público de tu instancia EC2
 - 📸 Captura de pantalla de la aplicación funcionando
 - 📝 Cualquier problema encontrado y cómo lo resolviste
