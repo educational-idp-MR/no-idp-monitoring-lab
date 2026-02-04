@@ -130,7 +130,7 @@ Incluye una captura de pantalla del panel en tu bitácora.
 
 **Asegúrate de haber completado:**
 - ☑️ Análisis del comportamiento del servicio
-- ☑️ Propuesta documentada de la métrica en tu [bitácora](../Bitacora.md)
+- ☑️ Propuesta documentada de la métrica en tu bitácora
 - ☑️ Implementación de la métrica en el código Java
 - ☑️ Verificación en el endpoint `/actuator/prometheus`
 - ☑️ Panel creado en Grafana con tu métrica
