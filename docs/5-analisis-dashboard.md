@@ -154,7 +154,7 @@ También aplicaste un proceso iterativo de análisis y corrección, muy similar 
 - ☑️ Análisis de correlaciones entre métricas y logs
 - ☑️ Modificación del código para corregir anomalías
 - ☑️ Validación de mejoras con métricas
-- ☑️ Documentación completa en tu [bitácora](../Bitacora.md)
+- ☑️ Documentación completa en tu bitácora
 - ☑️ Capturas de pantalla del antes y después
 - ☑️ Reflexión final sobre las lecciones aprendidas
 
