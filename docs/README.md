@@ -175,17 +175,6 @@ A lo largo del taller, documentarás tu trabajo en la [**Bitácora del Laborator
 
 ---
 
-## ℹ️ Información del Taller
-
-**Contexto:** Este taller forma parte del curso de DevOps y tiene como objetivo proporcionar experiencia práctica en observabilidad de sistemas, una habilidad fundamental en la ingeniería de software moderna.
-
-**Requisitos previos:**
-- Conocimientos básicos de línea de comandos
-- Familiaridad con conceptos de HTTP/REST APIs
-- Acceso a AWS (credenciales proporcionadas)
-
----
-
 <div align="center">
 
 **¡Buena suerte y disfruta el laboratorio! 🎉**
