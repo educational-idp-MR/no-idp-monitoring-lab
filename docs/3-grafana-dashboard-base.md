@@ -239,7 +239,7 @@ Observar los **logs generados por la aplicación Java** en tiempo real, filtrarl
 | **Name** | `LogLevel` |
 | **Label** | `LogLevel` |
 | **Type** | `Custom` |
-| **Values separated by commas** | `INFO, WARN, ERROR` |
+| **Values separated by commas** | `info, warn, error` |
 | **Include All option** | ✅ Activado |
 | **Multi-value** | ✅ Activado |
 
@@ -254,9 +254,7 @@ Esta variable permitirá filtrar dinámicamente el nivel de logs visualizado des
 2. En el campo de consulta, escribe la siguiente **query LogQL**:
 
 ```logql
-{container_name="java-application"} 
-| regexp `(?P<timestamp>\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}) - (?P<logger>[\w.$]+) - (?P<level>[A-Z]+) - (?P<msg>.*)` 
-| level =~ `$LogLevel`
+{container_name="java-application"} | level =~ `$LogLevel`
 ```
 
 #### Interpretación de la consulta:**
@@ -273,15 +271,12 @@ y filtrando dinámicamente según el nivel seleccionado en $LogLevel.
 
 **Opciones recomendadas:**
 
-* Activar “Show context” (para ver líneas antes y después del evento).
-
 * Activar “Wrap lines” (para leer mensajes largos).
 
 * Ordenar por timestamp descendente.
 
 
 ![alt text](./resources/grafana-inicial/log-panel-config.png)
-
 
 
 ---
