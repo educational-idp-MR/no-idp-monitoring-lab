@@ -108,16 +108,12 @@ Al finalizar el proceso debería obtener un mensaje similar al siguiente `Docker
 5. obtenga la dirección del archivo `.zip` al hacer click sobre `Copy S3 URI`
 ![alt text](./resources/provisioning/s3uri.png)
 6. En la instancia de EC2 creada anteriormente, ejecute el siguiente comando :
-
  ```
  sudo mkdir -p /usr/telemetry_lab && cd /usr/telemetry_lab && sudo aws s3 cp {COPIE LA URI S3 DEl ARCHIVO .ZIP AQUI} . 
  sudo unzip telemetry_lab.zip && cd telemetry_lab 
  ```
-
-Estos comandos  permiten 1. crear la carpeta `/usr/telemetry_lab` , 2.descargar los archivos de s3 usando el CLI de aws y 3. descompromir el archivo y navegar al contenido.
-
+ Estos comandos  permiten 1. crear la carpeta `/usr/telemetry_lab` , 2.descargar los archivos de s3 usando el CLI de aws y 3. descompromir el archivo y navegar al contenido.
 7. Para ejecutar el proyecto, vamos a usar `docker compose` que nos permite orquestar los servicios mencionados en la arquitectura  (Nuestra app, grafana, prometheus y loki) mediante el uso de contenedores, para esto, vamos a usar el comando `docker compose up --build -d` . Al finalizar la ejecución del comando tendremos toda la infraestructura necesaria para el desarrollo del laboratorio.
-
 8. Verificar que la aplicación está ejecutando. Para esto debes volver a la consola de instancias de EC2, seleccionar tu instancia y en el panel inferior encontrarás el DNS público de la instancia, lo usaremos para acceder a nuestra aplicación.
 
 > **💡 Nota importante:**
