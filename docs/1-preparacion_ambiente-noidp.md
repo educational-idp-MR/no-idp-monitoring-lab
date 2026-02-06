@@ -125,7 +125,7 @@ Al finalizar el proceso debería obtener un mensaje similar al siguiente `Docker
 
  8. Verificar que la aplicación está ejecutando. Para esto debes volver a la consola de instancias de EC2, seleccionar tu instancia y en el panel inferior encontrarás el DNS público de la instancia, lo usaremos para acceder a nuestra aplicación.
 
-> [!IMPORTANT]
+> **💡 Nota importante:**
 > Los pasos **4–8 deben repetirse cada vez que se quiera cambiar el código dentro de la instancia**.  
 > Esto será necesario en secciones posteriores.
 
