@@ -23,7 +23,7 @@
 
 > **Paso 1:** Preparación del repositorio
 
-1. Crear un fork del siguiente repositorio: [https://github.com/AndresMarcelo7/telemetry_lab](https://github.com/AndresMarcelo7/telemetry_lab)
+1. Crear un fork **público** del siguiente repositorio: [https://github.com/AndresMarcelo7/telemetry_lab](https://github.com/AndresMarcelo7/telemetry_lab)
 2. Clonar el repositorio en local
 
 ---

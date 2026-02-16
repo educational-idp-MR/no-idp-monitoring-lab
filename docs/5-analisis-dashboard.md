@@ -82,15 +82,6 @@ Ajusta el rango de tiempo para observar con más detalle (últimos 5 minutos, 15
 
 ### 4️⃣ Detección de Anomalías y Puntos de Interés
 
-Durante tu experimentación, presta atención a:
-
-- Picos de latencia inesperados  
-- Tiempos de respuesta inconsistentes  
-- Errores HTTP en momentos específicos  
-- Repentinas caídas o aumentos de tráfico  
-- Logs con mensajes atípicos o en cantidades inusuales  
-- Endpoints cuyos valores no cambian como esperarías  
-
 Documenta brevemente en tu bitacora:
 
 - ¿Cómo describirías la anomalía?
@@ -146,19 +137,6 @@ También aplicaste un proceso iterativo de análisis y corrección, muy similar 
 
 ---
 
-## ✅ Verificación Final
-
-**Asegúrate de haber completado:**
-- ☑️ Generación de tráfico variado hacia la aplicación
-- ☑️ Identificación de anomalías en el dashboard
-- ☑️ Análisis de correlaciones entre métricas y logs
-- ☑️ Modificación del código para corregir anomalías
-- ☑️ Validación de mejoras con métricas
-- ☑️ Documentación completa en tu bitácora
-- ☑️ Capturas de pantalla del antes y después
-- ☑️ Reflexión final sobre las lecciones aprendidas
-
----
 
 ## 🎓 ¡Felicitaciones!
 
@@ -212,7 +190,7 @@ No necesitas explicaciones profundas — basta con registrar qué observaste y p
     🏆 Finalizar Laboratorio ✅
   </button>
   <p class="finish-stage-info">
-    💾 Al hacer clic, tu tiempo será guardado y verás el resumen completo abajo
+    💾 Al hacer clic, tu tiempo será guardado y verás el resumen completo abajo . Toma ScreenShot del informe y adjuntalo en tu bitácora.
   </p>
 </div>
 
