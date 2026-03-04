@@ -2,10 +2,6 @@
 
 <div align="center">
 
-[![Etapa](https://img.shields.io/badge/etapa-2.2-blue.svg)]()
-[![Duración](https://img.shields.io/badge/duraci%C3%B3n-25--35%20min-orange.svg)]()
-[![Dificultad](https://img.shields.io/badge/dificultad-intermedia-yellow.svg)]()
-
 [⬅️ Anterior: Etapa 2.1](./3-grafana-dashboard-base.md) | [🏠 Inicio](./README.md) | [➡️ Siguiente: Etapa 3](./5-analisis-dashboard.md)
 
 </div>

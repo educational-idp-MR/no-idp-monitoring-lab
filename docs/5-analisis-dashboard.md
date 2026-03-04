@@ -2,10 +2,6 @@
 
 <div align="center">
 
-[![Etapa](https://img.shields.io/badge/etapa-3-blue.svg)]()
-[![Duración](https://img.shields.io/badge/duraci%C3%B3n-30--40%20min-orange.svg)]()
-[![Dificultad](https://img.shields.io/badge/dificultad-avanzada-red.svg)]()
-
 [⬅️ Anterior: Etapa 2.2](./4-propuesta-metrica.md) | [🏠 Inicio](./README.md)
 
 </div>
