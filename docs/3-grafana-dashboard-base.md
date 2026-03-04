@@ -43,8 +43,6 @@ Construir un dashboard en Grafana que permita visualizar y analizar las métrica
 5. Sigue los mismos pasos para configurar  el datasource de `Loki`. Para esto debes asegurarte de seleccionar la integración de `Loki` y utilizar la siguiente url `http://loki:3100`
 
 
-### Integración de Loki
-
 ## 📋 Construcción del Dashboard
 
 En el menú lateral, selecciona **“Dashboard”** y luego haz clic en **“new”**. Finalmente, haz clic en **"Add Visualization"**
@@ -253,7 +251,7 @@ Esta variable permitirá filtrar dinámicamente el nivel de logs visualizado des
 {container_name="java-application"} | level =~ `$LogLevel`
 ```
 
-#### Interpretación de la consulta:**
+#### Interpretación de la consulta:
 
 Muestra todos los logs generados por el contenedor java-application,
 extrayendo la fecha, el logger, el nivel de severidad y el mensaje de cada línea,
@@ -313,7 +311,6 @@ Para cada una, define: (No olvides agregarlo a tu bitácora)
 
 ### 📝 Análisis Final (Bitácora)
 
-- ¿Qué indicadores te parecerían útiles para detectar fallos antes de que afecten a los usuarios?  
 - ¿Qué otros datos te gustaría visualizar si tuvieras más información disponible?
 
 ---

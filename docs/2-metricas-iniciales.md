@@ -21,6 +21,14 @@ Analizar las métricas expuestas por la aplicación Java y verificar su recolecc
 
 ---
 
+## Contexto
+ 
+La aplicacion que acabas de obtener, es una API REST que permite acortar URLs. Sus principales casos de uso son:
+ 
+1. Generar un código corto para una URL original.
+2. Redirigir a la URL original a partir de un código corto.
+3. Listar todas las URLs almacenadas en memoria.
+ 
 ## 📋 Instrucciones
 
 ### 1️⃣ Generar Actividad en la Aplicación
