@@ -128,10 +128,22 @@ Deberías ver algo como esto:
 
 ---
 
+## 🔧 Configuración de Observabilidad Incluida
+
+La aplicación que acabas de desplegar viene preconfigurada con las integraciones necesarias para exponer métricas y logs. Estas configuraciones se encuentran en el archivo `application.properties`.
+
+### Propiedades Configuradas:
+
+![Configuración de Spring Boot](./resources/provisioning/java-conf.png)
+
+> **💡 Nota importante:** Estas configuraciones ya vienen incluidas en el template, por lo que no necesitas modificarlas. Sin embargo, es importante que entiendas qué hacen, ya que son la base para todo el monitoreo que implementarás en las siguientes etapas.
+
+ 
+
  ---
 
 <details>
-<summary><h3>Explicación del archivo <code>docker-compose.yml</code></h3></summary>
+<summary><h3>Si quieres entender los detalles del archivo <code>docker-compose.yml</code> haz click sobre esta sección</h3></summary>
 
 A continuación se detalla qué hace cada sección del archivo `docker-compose.yml`, qué servicios se despliegan y en qué puertos estarán disponibles.
 
@@ -171,12 +183,6 @@ Todos los servicios se conectan a esta red para poder comunicarse entre sí util
 ```
 http://{Public-DNS}
 ```
-- En la siguiente imagen se muestra  la configuración del archivo  `application.properties` de `SpringBoot`,  esto permite que la aplicación  exponga las métricas por medio del endpoint `/actuator/prometheus`. Adicionalmente contiene algunas configuraciones con respecto al nivel y formato de logs.
-
-![alt text](./resources/provisioning/java-conf.png)
-
-> **💡 Nota importante:** Estas configuraciones ya vienen incluidas en el proyecto, por lo que no necesitas modificarlas. Sin embargo, es importante que entiendas qué hacen, ya que son la base para todo el monitoreo que implementarás en las siguientes etapas.
-
 ---
 
 #### Servicio: Prometheus
