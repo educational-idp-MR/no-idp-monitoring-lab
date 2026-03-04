@@ -1,9 +1,5 @@
 # 🔬 Taller de Telemetría y Observabilidad en Entornos DevOps
 
-[![Status](https://img.shields.io/badge/status-active-success.svg)]()
-[![Lab](https://img.shields.io/badge/type-hands--on-blue.svg)]()
-[![Difficulty](https://img.shields.io/badge/difficulty-intermediate-yellow.svg)]()
-
 > **Bienvenido al laboratorio de observabilidad**  
 > Este taller te guiará a través de la implementación práctica de métricas, logs y dashboards usando Prometheus, Grafana y Loki.
 
