@@ -130,7 +130,8 @@ Deberías ver algo como esto:
 
  ---
 
-### Explicación del archivo `docker-compose.yml`
+<details>
+<summary><h3>Explicación del archivo <code>docker-compose.yml</code></h3></summary>
 
 A continuación se detalla qué hace cada sección del archivo `docker-compose.yml`, qué servicios se despliegan y en qué puertos estarán disponibles.
 
@@ -281,6 +282,8 @@ volumes:
 ```
 
 El volumen **grafana-storage** permite persistir dashboards, configuraciones y datos de Grafana incluso si el contenedor es reiniciado.
+
+</details>
 
 ---
 
