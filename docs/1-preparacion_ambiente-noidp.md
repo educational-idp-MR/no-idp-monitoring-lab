@@ -305,7 +305,6 @@ Si llegaste hasta aquí y puedes ver la aplicación corriendo en tu navegador, *
 
 Ahora que tu ambiente está configurado, es momento de explorar las métricas que expone la aplicación.
 
-### ➡️ [Continuar a la Etapa 2: Métricas Iniciales](./2-metricas-iniciales.md)
 
 ---
 
@@ -318,10 +317,4 @@ Ahora que tu ambiente está configurado, es momento de explorar las métricas qu
   </p>
 </div>
 
----
 
-<div align="center">
-
-[🏠 Volver al Inicio](./README.md) | [➡️ Siguiente: Etapa 2](./2-metricas-iniciales.md)
-
-</div>

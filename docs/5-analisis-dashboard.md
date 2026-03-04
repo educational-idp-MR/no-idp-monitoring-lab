@@ -179,11 +179,7 @@ No necesitas explicaciones profundas — basta con registrar qué observaste y p
 - [The Four Golden Signals](https://sre.google/sre-book/monitoring-distributed-systems/)
 - [Observability Engineering (O'Reilly Book)](https://www.oreilly.com/library/view/observability-engineering/9781492076438/)
 
----
 
-[⬅️ Anterior: Etapa 2.2](./4-propuesta-metrica.md) | [🏠 Volver al Inicio](./README.md)
-
----
 
 <div class="finish-stage-container">
   <button id="finish-stage-btn" class="finish-stage-btn" data-next-url="">

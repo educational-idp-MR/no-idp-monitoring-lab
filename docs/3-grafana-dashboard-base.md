@@ -338,8 +338,6 @@ Para cada una, define: (No olvides agregarlo a tu bitácora)
 
 Ahora que tienes un dashboard funcional, es momento de crear tu propia métrica personalizada.
 
-### ➡️ [Continuar a la Etapa 2.2: Propuesta de Métrica Personalizada](./4-propuesta-metrica.md)
-
 ---
 
 <div class="finish-stage-container">
@@ -352,9 +350,3 @@ Ahora que tienes un dashboard funcional, es momento de crear tu propia métrica 
 </div>
 
 ---
-
-<div align="center">
-
-[⬅️ Anterior: Etapa 2](./2-metricas-iniciales.md) | [🏠 Inicio](./README.md) | [➡️ Siguiente: Etapa 2.2](./4-propuesta-metrica.md)
-
-</div>
