@@ -70,7 +70,7 @@ Instrucciones generales:
 3. Ubica la llamada al método `.increment()`, `.record()`, o equivalente **exactamente en el lugar del flujo lógico donde tu métrica tiene sentido**.  
 4. Usa etiquetas si consideras que aportan valor (optional).
 
-Cuando termines, despliega nuevamente la aplicación   y verifica que tu métrica aparece en: `http://{Public-DNS}/actuator/prometheus`.
+Cuando termines, despliega nuevamente la aplicación   y verifica que tu métrica aparece en: `http://{Public-DNS}/actuator/prometheus`. (Recuerda el proceso utilizado en la seccion 1 - Preparación del ambiente)
 
 
 ---

@@ -233,7 +233,7 @@ Observar los **logs generados por la aplicación Java** en tiempo real, filtrarl
 | **Name** | `LogLevel` |
 | **Label** | `LogLevel` |
 | **Type** | `Custom` |
-| **Values separated by commas** | `info, warn, error` |
+| **Values separated by commas** | `INFO, WARN, ERROR` |
 | **Include All option** | ✅ Activado |
 | **Multi-value** | ✅ Activado |
 
